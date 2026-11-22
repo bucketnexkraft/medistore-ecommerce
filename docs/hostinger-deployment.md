@@ -7,8 +7,8 @@ The deployable applications are:
 | Application | Repository root | Suggested URL | Hostinger type |
 | --- | --- | --- | --- |
 | Storefront | `./` | `https://medistore.nexkraft.com` | Next.js Web App |
-| Admin | `admin` | `https://medistoreadmin.nexkraft.com` | Vite Web App |
-| API | `api` within the server checkout | `https://medistoreapi.nexkraft.com` | PHP/Laravel site |
+| Admin | built `admin/dist` files | `https://medistoreadmin.nexkraft.com` | Static website |
+| API | contents of `api` | `https://medistoreapi.nexkraft.com` | PHP/Laravel site |
 
 The `landing` directory is not built or deployed.
 
@@ -30,7 +30,8 @@ In the **target** repository (`bucketnexkraft/medistore-ecommerce`), create thes
 | `PRODUCTION_API_V1_URL` | `https://medistoreapi.nexkraft.com/api/v1` |
 | `PRODUCTION_ADMIN_URL` | `https://medistoreadmin.nexkraft.com` |
 | `PRODUCTION_STOREFRONT_URL` | `https://medistore.nexkraft.com` |
-| `HOSTINGER_API_DEPLOY_PATH` | `/home/u123456789/domains/medistoreapi.nexkraft.com/public_html` |
+| `HOSTINGER_API_DEPLOY_PATH` | `/home/u679789475/domains/nexkraft.com/public_html/medistoreapi` |
+| `HOSTINGER_ADMIN_DEPLOY_PATH` | `/home/u679789475/domains/nexkraft.com/public_html/medistoreadmin` |
 
 Create these secrets in the **target** repository:
 
@@ -41,7 +42,7 @@ Create these secrets in the **target** repository:
 | `HOSTINGER_SSH_USER` | Hostinger SSH username |
 | `HOSTINGER_SSH_PRIVATE_KEY` | Private key authorized by the Hostinger account |
 
-The workflow uses the GitHub `production` environment for the API deployment. The four `PRODUCTION_*` values must remain **repository variables** because the storefront and admin validation jobs do not use that environment. The four `HOSTINGER_SSH_*` values may be repository secrets or secrets in the `production` environment. `HOSTINGER_API_DEPLOY_PATH` may be a repository variable or a variable in that environment; using the repository locations for all values is the simplest setup.
+The workflow uses the GitHub `production` environment for the API/admin deployment. The four `PRODUCTION_*` values must remain **repository variables** because the build jobs do not use that environment. The four `HOSTINGER_SSH_*` values may be repository secrets or secrets in the `production` environment. The two `HOSTINGER_*_DEPLOY_PATH` values may be repository variables or variables in that environment; using the repository locations for all values is the simplest setup.
 
 ## 2. Storefront web app
 
@@ -68,58 +69,26 @@ NEXT_PUBLIC_STORAGE_URL=https://medistoreapi.nexkraft.com
 
 Enable automatic deployment for only `medex-demo-site(only-for-demo)`.
 
-## 3. Admin web app
+## 3. Admin static site
 
-Create another Hostinger Web App for the admin subdomain from the same repository.
+Create the `medistoreadmin.nexkraft.com` directory as a static PHP/HTML website. GitHub Actions builds Vite with the `PRODUCTION_*` repository variables and uploads the contents of `admin/dist` directly to `HOSTINGER_ADMIN_DEPLOY_PATH`. The generated artifact includes `admin/public/.htaccess` for React Router fallback. No Git checkout, Node runtime, or server-side admin `.env` is required.
 
-- Branch: `medex-demo-site(only-for-demo)`
-- Framework: Vite
-- Node.js: 20.x
-- Root directory: `admin`
-- Package manager: npm
-- Build command: `npm run build`
-- Output directory: `dist`
+## 4. API direct deployment
 
-Add these Hostinger environment variables:
-
-```dotenv
-VITE_API_URL=https://medistoreapi.nexkraft.com/api/v1
-VITE_API_BASE_URL=https://medistoreapi.nexkraft.com
-```
-
-Enable automatic deployment for only `medex-demo-site(only-for-demo)`. The committed `admin/public/.htaccess` provides the React Router fallback in the generated `dist` directory.
-
-## 4. API site and first checkout
-
-Create the API subdomain as a PHP website using PHP 8.2 or newer. Its document root must contain a Git checkout of this repository on the deployment branch. This follows the same server-side Git checkout pattern used by `bpatc-hospital-management`.
-
-Initial server setup:
+Create the API subdomain as a PHP website using PHP 8.2 or newer. Do not initialize Git in this folder. Before the first deployment, create the persistent production environment file directly at the API document root:
 
 ```bash
-cd /home/USER/domains/API_DOMAIN/public_html
-git clone --branch 'medex-demo-site(only-for-demo)' git@github.com:bucketnexkraft/medistore-ecommerce.git .
-cp api/.env.example api/.env
-cd api
-composer2 install --no-dev --prefer-dist --optimize-autoloader
-php artisan key:generate
-php artisan storage:link
+mkdir -p /home/u679789475/domains/nexkraft.com/public_html/medistoreapi
+nano /home/u679789475/domains/nexkraft.com/public_html/medistoreapi/.env
 ```
 
-Keep `api/.env`, `api/storage`, and uploaded files on the server. They are ignored by Git and are not replaced by the workflow.
+GitHub Actions uploads the contents of the repository's `api` directory directly into `HOSTINGER_API_DEPLOY_PATH`. This places Laravel's `.htaccess`, `artisan`, and `public` directory at the API subdomain root. The upload excludes and preserves `.env`, `storage`, `vendor`, and log files.
 
-Configure the API subdomain document root to the checkout's `api/public` directory. If the Hostinger plan cannot change the document root, create the API subdomain so its `public_html` points or symlinks to `api/public`, or use the existing `api/.htaccess` front-controller arrangement.
-
-The GitHub Actions deployment then performs:
-
-1. Fetch and reset to `origin/medex-demo-site(only-for-demo)`.
-2. Install production Composer dependencies.
-3. Run database migrations with `--force`.
-4. Refresh Laravel configuration, route, and view caches.
-5. Bring the API out of maintenance mode.
+The deployment then installs production Composer dependencies, creates required storage directories, runs database migrations with `--force`, refreshes Laravel caches, and brings the API out of maintenance mode.
 
 ## 5. Production API environment
 
-At minimum, set these values in the persistent Hostinger `api/.env` alongside the database, mail, JWT, and payment credentials:
+At minimum, set these values in the persistent Hostinger `medistoreapi/.env` alongside the database, mail, JWT, and payment credentials:
 
 ```dotenv
 APP_ENV=production
