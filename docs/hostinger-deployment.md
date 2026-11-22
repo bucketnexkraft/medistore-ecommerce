@@ -84,7 +84,7 @@ nano /home/u679789475/domains/nexkraft.com/public_html/medistoreapi/.env
 
 GitHub Actions uploads the contents of the repository's `api` directory directly into `HOSTINGER_API_DEPLOY_PATH`. This places Laravel's `.htaccess`, `artisan`, and `public` directory at the API subdomain root. The upload excludes and preserves `.env`, `storage`, `vendor`, and log files.
 
-The deployment then installs production Composer dependencies, creates required storage directories, runs database migrations with `--force`, refreshes Laravel caches, and brings the API out of maintenance mode.
+The deployment then installs production Composer dependencies, creates required storage directories, refreshes Laravel caches, and brings the API out of maintenance mode. It does not run migrations because the production database is imported separately.
 
 ## 5. Production API environment
 
