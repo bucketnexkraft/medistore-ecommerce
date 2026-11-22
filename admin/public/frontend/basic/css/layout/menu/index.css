@@ -1,0 +1,221 @@
+/* transform */
+:root {
+  /**
+  @font family declaration
+  */
+  --ot-title-font: "Jersey 10", sans-serif;
+  --ot-body-font: "Roboto", sans-serif;
+  --ot-font-orbitron: "Orbitron", sans-serif;
+  /**
+  @ripple declaration
+  */
+  --ot-ripple-ani-duration: 2s;
+  /**
+  @color declaration
+  */
+  --ot-theme-color: #6366F1;
+  --ot-theme-color-2: #FF9696;
+  --ot-theme-color-3: #4AC0FB;
+  --ot-title-color: #111827;
+  --ot-body-color: #1F2937;
+  --ot-white-color: #fff;
+  --ot-smoke-color: #E5EBF4;
+  --ot-dark-bg-color: #1E1B4B;
+  --ot-border-color: #1E1B4B;
+}
+
+/*----------------------------------------*/
+/*  4.1 Main menu css
+/*----------------------------------------*/
+.ot-main-menu > nav > ul > li {
+  position: relative;
+  display: inline-block;
+}
+.ot-main-menu > nav > ul > li:not(:last-child) {
+  padding-right: 1.125rem;
+  margin-right: 1.125rem;
+}
+.ot-main-menu > nav > ul > li.has-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.6875rem;
+  height: 0.6875rem;
+  background-image: url(../img/icon/down-angle.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.ot-main-menu > nav > ul > li > a {
+  font-weight: 500;
+  font-size: 1.125rem;
+  padding: 1.625rem 0;
+  display: inline-block;
+  text-transform: capitalize;
+  color: var(--ot-white-color);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.ot-main-menu > nav > ul > li .submenu {
+  position: absolute;
+  min-width: 28.75rem;
+  z-index: 999;
+  padding: 2rem 2.5rem;
+  top: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  text-align: left;
+  margin-left: 0;
+  transform-origin: top;
+  transition-duration: 0.1s;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-transform: perspective(18.75rem) rotateX(-18deg);
+  -moz-transform: perspective(18.75rem) rotateX(-18deg);
+  -ms-transform: perspective(18.75rem) rotateX(-18deg);
+  -o-transform: perspective(18.75rem) rotateX(-18deg);
+  transform: perspective(18.75rem) rotateX(-18deg);
+  border-radius: 0 0 1.25rem 1.25rem;
+}
+.ot-main-menu > nav > ul > li .submenu li {
+  list-style: none;
+  display: block;
+  padding: 0 1.875rem;
+  position: relative;
+}
+.ot-main-menu > nav > ul > li .submenu li:not(:last-child) {
+  margin-bottom: 1.125rem;
+}
+.ot-main-menu > nav > ul > li .submenu li .submenu {
+  left: 100%;
+  top: 0;
+}
+.ot-main-menu > nav > ul > li .submenu li a {
+  position: relative;
+  display: block;
+  font-size: 0.9375rem;
+  font-family: var(--ot-body-font);
+  font-weight: 500;
+  line-height: 1;
+  padding: 0 0;
+  text-transform: capitalize;
+  color: var(--ot-title-color);
+}
+.ot-main-menu > nav > ul > li .submenu li a::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  content: "";
+  height: 0.125rem;
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: inline-block;
+  transition: all 0.3s ease-out 0s;
+  background-color: var(--ot-title-color);
+  transform: translateY(-50%);
+}
+.ot-main-menu > nav > ul > li .submenu li:hover > .submenu {
+  opacity: 1;
+  visibility: visible;
+}
+.ot-main-menu > nav > ul > li .submenu li:hover > a {
+  padding-left: 1.5625rem;
+  color: var(--ot-title-color);
+}
+.ot-main-menu > nav > ul > li .submenu li:hover > a::before {
+  width: 1.25rem;
+  visibility: visible;
+  opacity: 1;
+}
+.ot-main-menu > nav > ul > li:hover > a {
+  text-decoration: underline;
+}
+.ot-main-menu > nav > ul > li:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transition-duration: 0.2s;
+  -webkit-transform: perspective(18.75rem) rotateX(0deg);
+  -moz-transform: perspective(18.75rem) rotateX(0deg);
+  -ms-transform: perspective(18.75rem) rotateX(0deg);
+  -o-transform: perspective(18.75rem) rotateX(0deg);
+  transform: perspective(18.75rem) rotateX(0deg);
+}
+.ot-main-menu > nav > ul > li:hover.has-dropdown::after {
+  filter: brightness(1) contrast(1);
+}
+
+/*----------------------------------------*/
+/*  4.2 Mobilemenu css
+/*----------------------------------------*/
+.ot-offcanvas-menu {
+  margin-bottom: 40px;
+}
+.ot-offcanvas-menu ul {
+  list-style: none;
+}
+.ot-offcanvas-menu ul li {
+  position: relative;
+}
+.ot-offcanvas-menu ul li > a {
+  padding: 8px 0;
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ot-title-color);
+}
+.ot-offcanvas-menu ul li > a i {
+  display: none;
+}
+.ot-offcanvas-menu ul li:not(:last-child) > a {
+  border-bottom: 1px solid rgba(1, 15, 28, 0.1);
+}
+.ot-offcanvas-menu ul li.active > a {
+  color: var(--ot-theme-color);
+}
+.ot-offcanvas-menu ul li.active > .ot-menu-close {
+  color: var(--ot-white-color);
+  background: var(--ot-title-color);
+  border-color: var(--ot-title-color);
+}
+.ot-offcanvas-menu ul li.active > .ot-menu-close i {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ot-offcanvas-menu ul li .ot-submenu {
+  display: none;
+  padding-left: 20px;
+}
+.ot-offcanvas-menu ul li .ot-mega-menu {
+  display: none;
+}
+
+.ot-menu-close {
+  position: absolute;
+  right: 0;
+  top: 6px;
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+  line-height: 29px;
+  text-align: center;
+  border: 1px solid rgba(1, 15, 28, 0.12);
+}
+.ot-menu-close i {
+  transition: all 0.3s;
+}
+
+/*# sourceMappingURL=index.css.map */

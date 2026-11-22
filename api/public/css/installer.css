@@ -1,0 +1,281 @@
+:root {
+    --bg: #f6f8ff;
+    --card: #fff;
+    --line: #e8ecff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --brand: #2563eb;
+    --brand2: #06b6d4;
+    --ok: #059669;
+    --bad: #dc2626;
+    --error: #b91c1c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at 1px 1px, #dbe4ff 1px, transparent 0) 0 0 / 28px 28px,
+        var(--bg);
+    color: var(--text);
+}
+
+.installer-wrap {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.installer-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(37, 99, 235, 0.12);
+}
+
+.installer-card--welcome {
+    width: min(560px, 100%);
+    padding: 32px;
+}
+
+.installer-card--requirements {
+    width: min(760px, 100%);
+}
+
+.installer-card--permissions {
+    width: min(880px, 100%);
+}
+
+.installer-card--database {
+    width: min(820px, 100%);
+}
+
+.installer-card--admin {
+    width: min(980px, 100%);
+}
+
+.installer-title {
+    margin: 0;
+    font-size: 30px;
+}
+
+.installer-title--welcome {
+    margin: 14px 0 8px;
+    font-size: 34px;
+    line-height: 1.1;
+}
+
+.installer-muted {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+.installer-muted--welcome {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.installer-badge {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #e0ecff;
+    color: #1d4ed8;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.installer-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.installer-steps--welcome {
+    margin: 24px 0;
+}
+
+.installer-step {
+    height: 8px;
+    border-radius: 999px;
+    background: #e2e8f0;
+}
+
+.installer-step.active {
+    background: linear-gradient(90deg, var(--brand), var(--brand2));
+}
+
+.installer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.installer-actions--welcome {
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.installer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.installer-btn--primary {
+    color: #fff;
+    background: linear-gradient(90deg, var(--brand), var(--brand2));
+}
+
+.installer-btn--welcome {
+    padding: 14px 20px;
+}
+
+.installer-btn--secondary {
+    color: #334155;
+    background: transparent;
+}
+
+.installer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 10px;
+}
+
+.installer-list {
+    display: grid;
+    gap: 10px;
+}
+
+.installer-list--scroll {
+    max-height: 420px;
+    overflow: auto;
+    padding-right: 4px;
+}
+
+.installer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #f8fbff;
+}
+
+.installer-status {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.installer-status.ok {
+    background: #dcfce7;
+    color: var(--ok);
+}
+
+.installer-status.bad {
+    background: #fee2e2;
+    color: var(--bad);
+}
+
+.installer-path {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+.installer-grid-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+}
+
+.installer-grid-even {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.installer-field {
+    margin-bottom: 12px;
+}
+
+.installer-field--full {
+    grid-column: 1 / -1;
+}
+
+.installer-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.installer-input,
+.installer-select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font: inherit;
+}
+
+.installer-input:focus,
+.installer-select:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.installer-group {
+    margin: 16px 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.installer-error {
+    margin-bottom: 12px;
+    padding: 12px;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    background: #fef2f2;
+    color: var(--error);
+}
+
+.installer-error-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+@media (max-width: 720px) {
+    .installer-grid-2,
+    .installer-grid-even {
+        grid-template-columns: 1fr;
+    }
+}

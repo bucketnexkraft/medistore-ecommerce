@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* fonts */
+@font-face {
+  font-family: "Alata";
+  src: url("../src/assets/fonts/Alata/Alata-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../src/assets/fonts/Figtree/Figtree-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.figtree-regular {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    /* scrollbar-width: none; */
+    color-scheme: light only !important;
+    scrollbar-width: none;
+  }
+
+  body {
+    @apply bg-white text-zinc-900;
+  }
+
+  /* Ensure DaisyUI components use light theme colors */
+  [data-theme="light"] {
+    --color-primary: #1e40af;
+    --color-secondary: #4b5563;
+    --color-accent: #f97316;
+    --color-neutral: #374151;
+    --color-base-100: #ffffff;
+    --color-base-200: #f9fafb;
+    --color-base-300: #e5e7eb;
+    --color-info: #3b82f6;
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+  }
+}
+
+/* Remove any dark mode styles */
+@layer components {
+  /* Keep DaisyUI modals above fixed app chrome like the backoffice navbar. */
+  .modal.modal-open {
+    z-index: 9999 !important;
+  }
+
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: auto;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  /*--- scrollbar thin ---*/
+  .scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+  -ms-overflow-style: auto;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+    border: 1px solid #f1f1f1;
+  }
+  /*--- scrollbar thin end ---*/
+
+  /* Invoice print styles */
+  .invoice-logo-img {
+    height: 100% !important;
+    max-height: 4rem !important;
+    width: auto !important;
+    max-width: 15rem !important;
+    object-fit: contain !important;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    .text-gray-dark {
+      @apply text-gray-900 !important;
+    }
+  }
+
+  /* sidebar bottom accordion fixing */
+  .sidebar-nav-custom {
+    @apply flex h-full min-h-0 flex-col gap-2 px-3 py-4 relative;
+  }
+
+  .sidebar-brand-card {
+    @apply mb-1 flex h-16 items-center gap-3 rounded-lg border border-white bg-white/80 shadow-sm shadow-slate-200/70 ring-1 ring-slate-200/70 transition-all hover:bg-white hover:shadow-md;
+  }
+
+  .sidebar-nav-custom summary {
+    list-style: none;
+  }
+
+  .sidebar-nav-custom summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sidebar-ul-custom {
+    @apply flex-1 min-h-0 space-y-0.5 overflow-y-auto scrollbar-hidden pr-1;
+  }
+
+  .sidebar-bottom {
+    @apply shrink-0 w-full pt-3;
+  }
+
+  .sidebar-bottom-accordion {
+    @apply w-full max-w-[264px] overflow-hidden rounded-lg bg-white shadow-lg shadow-slate-200/70;
+  }
+
+  .accordion-custom {
+    @apply min-h-12 p-3;
+  }
+
+  .accordion-custom.collapse-title:after {
+    @apply top-7;
+  }
+
+  .dashboard-shell {
+    @apply min-h-screen bg-slate-50 px-3 py-4 text-slate-900 sm:px-4 md:px-6 md:py-6;
+  }
+
+  .dashboard-hero {
+    @apply overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm shadow-slate-200/80;
+  }
+
+  .dashboard-panel {
+    @apply rounded-lg border border-slate-200 bg-white shadow-sm shadow-slate-200/70;
+  }
+
+  .dashboard-panel-header {
+    @apply flex flex-col gap-1 border-b border-slate-100 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-5;
+  }
+
+  .dashboard-card {
+    @apply relative overflow-hidden rounded-lg border border-slate-200 bg-white p-4 shadow-sm shadow-slate-200/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200;
+  }
+
+  .dashboard-table {
+    @apply table figtree-regular w-full;
+  }
+
+  .dashboard-table thead tr {
+    @apply bg-slate-100 text-xs uppercase text-slate-500;
+  }
+
+  .dashboard-table tbody tr {
+    @apply border-b border-slate-100 text-sm text-slate-700 transition-colors hover:bg-slate-50;
+  }
+
+  .dashboard-empty {
+    @apply flex min-h-48 items-center justify-center rounded-lg border border-dashed border-slate-200 bg-slate-50 text-sm text-slate-500;
+  }
+}
+
+/* react quill */
+.ql-toolbar {
+  @apply rounded-t-lg;
+}
+
+.ql-container {
+  @apply min-h-40 rounded-b-lg;
+}
+
+/* react datepicker */
+.react-datepicker-wrapper {
+  @apply w-full;
+}
+
+/* react select */
+.select__control {
+  @apply input input-bordered !rounded-lg;
+}
+
+.select__value-container,
+.select__placeholder,
+.select__input-container,
+.select__input {
+  @apply !p-0 !m-0;
+}
+
+.select__dropdown-indicator {
+  @apply !pr-0 !pl-4 !m-0;
+}
+
+/* Auth phone input */
+.phone-input-clean .PhoneInputInput {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: #0f172a;
+  background: transparent;
+}
+
+.phone-input-clean .PhoneInputInput::placeholder {
+  color: #94a3b8;
+}
+
+/* SweetAlert confirmation dialogs */
+.swal2-popup {
+  border-radius: 14px !important;
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.22) !important;
+}
+
+.swal2-icon.swal2-warning {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 3.75rem !important;
+  height: 3.75rem !important;
+  margin: 0.5rem auto 0 !important;
+  border: 0 !important;
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+  font-size: 0 !important;
+}
+
+.swal2-icon.swal2-warning::before {
+  content: "";
+  width: 1.55rem;
+  height: 1.55rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/%3E%3Cpath d='M19 6l-1 14c0 1-1 2-2 2H8c-1 0-2-1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/%3E%3Cpath d='M19 6l-1 14c0 1-1 2-2 2H8c-1 0-2-1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.swal2-icon.swal2-question {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 3.75rem !important;
+  height: 3.75rem !important;
+  margin: 0.5rem auto 0 !important;
+  border: 0 !important;
+  background: #dbeafe !important;
+  color: #2563eb !important;
+  font-size: 0 !important;
+}
+
+.swal2-icon.swal2-question::before {
+  content: "";
+  width: 1.65rem;
+  height: 1.65rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='12' x='2' y='6' rx='6'/%3E%3Ccircle cx='16' cy='12' r='2'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='12' x='2' y='6' rx='6'/%3E%3Ccircle cx='16' cy='12' r='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}

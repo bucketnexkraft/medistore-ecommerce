@@ -1,0 +1,62 @@
+{
+    "common": {
+        "tel": "Tél",
+        "print": "Imprimer",
+        "close": "Fermer",
+        "logo": "Logo"
+    },
+    "invoice": {
+        "salesInvoice": "Facture de Vente",
+        "purchaseInvoice": "Facture d'Achat",
+        "invoiceNumber": "Livraison ",
+        "date": "Date",
+        "dueDate": "Date d'échéance",
+        "billTo": "Facturé à",
+        "receivedFrom": "Reçu de",
+        "deliveryNote": "BON LIVRAISONS",
+        "paymentMethod": "Méthode de Paiement",
+        "paymentStatus": "Statut de Paiement",
+        "notes": "Notes",
+        "defaultFooterNote": "Veuillez payer la facture avant la date d'échéance. Vous pouvez payer la facture en vous connectant à votre compte depuis notre portail client.",
+        "table": {
+            "item": "Article",
+            "qty": "Qté",
+            "price": "Prix",
+            "discountRate": "Taux de Remise",
+            "discount": "Remise",
+            "taxRate": "Taux de Taxe",
+            "tax": "Taxe",
+            "vatRate": "Taux TVA",
+            "vat": "TVA",
+            "amount": "Montant",
+            "barcode": "Code-barres",
+            "noItems": "Aucun article"
+        },
+        "subtotal": "Sous-total",
+        "ttc": "TTC",
+        "totalDiscount": "Remise Totale",
+        "rate": "Taux",
+        "totalTax": "Taxe Totale",
+        "totalVAT": "TVA Totale",
+        "total": "Total",
+        "paidAmount": "Montant Payé",
+        "changeAmount": "Monnaie à Rendre",
+        "dueAmount": "Montant Dû",
+        "returnAmount": "Montant de Retour",
+        "status": {
+            "paid": "Payé",
+            "unpaid": "Impayé",
+            "due": "Dû"
+        },
+        "receptPreview": "Aperçu du Ticket",
+        "customer": "Client",
+        "items": "Articles",
+        "qty": "Qté",
+        "phone": "Téléphone",
+        "thankYou": "Merci"
+    },
+    "company": {
+        "yourBusiness": "Votre Entreprise",
+        "defaultEmail": "ventes@entreprise.com"
+    }
+}

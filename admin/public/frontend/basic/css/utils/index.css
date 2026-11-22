@@ -1,0 +1,27 @@
+/* transform */
+:root {
+  /**
+  @font family declaration
+  */
+  --ot-title-font: "Jersey 10", sans-serif;
+  --ot-body-font: "Roboto", sans-serif;
+  --ot-font-orbitron: "Orbitron", sans-serif;
+  /**
+  @ripple declaration
+  */
+  --ot-ripple-ani-duration: 2s;
+  /**
+  @color declaration
+  */
+  --ot-theme-color: #6366F1;
+  --ot-theme-color-2: #FF9696;
+  --ot-theme-color-3: #4AC0FB;
+  --ot-title-color: #111827;
+  --ot-body-color: #1F2937;
+  --ot-white-color: #fff;
+  --ot-smoke-color: #E5EBF4;
+  --ot-dark-bg-color: #1E1B4B;
+  --ot-border-color: #1E1B4B;
+}
+
+/*# sourceMappingURL=index.css.map */

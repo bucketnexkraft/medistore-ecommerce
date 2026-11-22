@@ -1,0 +1,6239 @@
+{
+  "Fashion & Apparel": {
+    "header": {
+      "header-default": {
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Search any product..."
+        }
+      },
+      "header-overlay": {
+       
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search Placeholder",
+          "default": "Search any product..."
+        }
+      },
+
+      "header-minimal": {
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Search any product..."
+        }
+      },
+
+      "header-classic": {
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Search any product..."
+        }
+      },
+      "header-compact": {
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Search any product..."
+        }
+      }
+
+    },
+    "hero": {
+      "hero-fashion-editorial": {
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "sub_title": {
+          "input_type": "text",
+          "label": "Sub title"
+        },
+        "background_color": {
+          "input_type": "color",
+          "label": "Background color",
+          "default": "#eeecdc"
+        },
+        "image_one": {
+          "input_type": "image",
+          "label": "Image One"
+        },
+        "image_two": {
+          "input_type": "image",
+          "label": "Image Two"
+        },
+        "image_three": {
+          "input_type": "image",
+          "label": "Image Three"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-classic": {
+        "images" : {
+          "input_type" : "repeater",
+          "label": "Hero Images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Slider Image"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "Slider image URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      },
+
+      "hero-compact": {
+        "background": {
+          "input_type": "image",
+          "label": "Background image"
+        },
+        "left_title": {
+          "input_type": "text",
+          "label": "Left title"
+        },
+        "left_description": {
+          "input_type": "textarea",
+          "label": "Left description"
+        },
+        "right_title": {
+          "input_type": "text",
+          "label": "Right title"
+        },
+        "right_description": {
+          "input_type": "textarea",
+          "label": "Right description"
+        },
+        "bottom_title": {
+          "input_type": "text",
+          "label": "Bottom title"
+        },
+        "images" : {
+          "input_type" : "repeater",
+          "label": "Hero Images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Slider Image"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "Slider image URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      },
+      "hero-split-spotlight": {
+        "images" : {
+          "input_type" : "repeater",
+          "label": "Hero Images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Slider Image"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "Slider image URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      },
+      "hero-fashion-luxe": {
+        "left_image": {
+          "input_type": "image",
+          "label": "Left hero image"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL"
+        },
+        "right_image": {
+          "input_type": "image",
+          "label": "Right hero image"
+        },
+        "categories": {
+          "input_type": "repeater",
+          "label": "Hero categories",
+          "item_fields": {
+            "id": {
+              "input_type": "text",
+              "label": "Category ID"
+            },
+            "image": {
+              "input_type": "image",
+              "label": "Category image"
+            },
+            "selected": {
+              "input_type": "boolean",
+              "label": "Selected"
+            }
+          }
+        }
+      }
+    },
+    "hot_category": {
+      "category-grid": {
+        "title": {
+          "input_type": "text",
+          "label": "Title"
+        },
+
+         "sub_title": {
+          "input_type": "text",
+          "label": "Sub Title"
+        },
+
+         "button_text": {
+          "input_type": "text",
+          "label": "Button Text"
+        },
+
+         "button_link": {
+          "input_type": "url",
+          "label": "Button Link"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        }
+      },
+      "category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "products": {
+      "products-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "demand_tag"
+          ]
+        }
+      },
+      "products-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+
+       "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Electronics & Gadgets": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        },
+        "navigation_background_color": {
+          "input_type": "color",
+          "label": "Navigation background color",
+          "placeholder": "Uses the template primary color when empty"
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Uses the storefront preference when empty"
+        },
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      },
+      "header-gadgets-one": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Uses the store name when empty"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Uses the storefront preference when empty"
+        },
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      },
+      "header-gadgets-two": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Uses the store name when empty"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Uses the storefront preference when empty"
+        },
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      }
+    },
+    "hero": {
+      "hero-gadgets-one": {
+        "slides": {
+          "input_type": "repeater",
+          "label": "Main slider images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Slide image"
+            }
+          }
+        },
+        "banners": {
+          "input_type": "repeater",
+          "label": "Bottom banner images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Banner image"
+            }
+          }
+        },
+        "autoplay": {
+          "input_type": "boolean",
+          "label": "Autoplay slider",
+          "default": true
+        },
+        "interval_seconds": {
+          "input_type": "number",
+          "label": "Autoplay interval (seconds)",
+          "default": 4,
+          "min": 2,
+          "max": 15
+        }
+      },
+      "hero-gadgets-two": {
+        "background": {
+          "input_type": "image",
+          "label": "Background image"
+        },
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "price": {
+          "input_type": "text",
+          "label": "Price"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text"
+        },
+        "button_url": {
+          "input_type": "url",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-gadgets-three": {
+        "main_image": {
+          "input_type": "image",
+          "label": "Main image"
+        },
+        "banner_image": {
+          "input_type": "image",
+          "label": "Bottom banner image"
+        }
+      },
+      "hero-gadgets-four": {
+        "main_image": {
+          "input_type": "image",
+          "label": "Main image"
+        },
+        "side_images": {
+          "input_type": "repeater",
+          "label": "Side images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Side image"
+            }
+          }
+        }
+      },
+      "hero-gadgets-five": {
+        "images": {
+          "input_type": "repeater",
+          "label": "Hero images",
+          "item_fields": {
+            "image": {
+              "input_type": "image",
+              "label": "Image"
+            }
+          }
+        }
+      },
+      "hero-electronics-tech": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-split-spotlight": {
+        "top_title": {
+          "input_type": "text",
+          "label": "Top title"
+        },
+        "top_image": {
+          "input_type": "image",
+          "label": "Top image"
+        },
+        "bottom_title": {
+          "input_type": "text",
+          "label": "Bottom title"
+        },
+        "bottom_image": {
+          "input_type": "image",
+          "label": "Bottom image"
+        },
+        "featured_title": {
+          "input_type": "text",
+          "label": "Featured title"
+        },
+        "featured_image": {
+          "input_type": "image",
+          "label": "Featured image"
+        },
+        "assistant_logo": {
+          "input_type": "image",
+          "label": "Assistant logo"
+        },
+        "assistant_name": {
+          "input_type": "text",
+          "label": "Assistant name"
+        },
+        "assistant_description": {
+          "input_type": "text",
+          "label": "Assistant description"
+        },
+        "assistant_label": {
+          "input_type": "text",
+          "label": "Assistant accessibility label"
+        }
+      },
+      "hero-classic": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      }
+    },
+    "hot_category": {
+      "hot-category-gadgets-four": {
+        "title": {
+          "input_type": "text",
+          "label": "Title"
+        }
+      },
+      "hot-category-gadgets-five": {
+        "title": {
+          "input_type": "text",
+          "label": "Category title",
+          "placeholder": "Category"
+        }
+      },
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "assistant": {
+      "assistant-luminex": {
+        "logo": {
+          "input_type": "image",
+          "label": "Assistant logo"
+        },
+        "name": {
+          "input_type": "text",
+          "label": "Assistant name"
+        },
+        "description": {
+          "input_type": "text",
+          "label": "Description"
+        },
+        "accessibility_label": {
+          "input_type": "text",
+          "label": "Accessibility label"
+        },
+        "button_url": {
+          "input_type": "url",
+          "label": "Button URL",
+          "placeholder": "/assistant"
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Groceries & Essentials": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        },
+        "navigation_background_color": {
+          "input_type": "color",
+          "label": "Navigation background color",
+          "placeholder": "Uses the template primary color when empty"
+        },
+        "search_placeholder_text": {
+          "input_type": "text",
+          "label": "Search placeholder",
+          "placeholder": "Uses the storefront preference when empty"
+        },
+        "social_links": {
+          "input_type": "repeater",
+          "label": "Social links",
+          "item_fields": {
+            "icon": {
+              "input_type": "iconpicker",
+              "label": "Icon"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "URL",
+              "placeholder": "https://example.com"
+            }
+          }
+        }
+      }
+    },
+    "hero": {
+      "hero-essentials-one": {
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Your Favorite Store, Delivered to Your Door"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "url",
+          "label": "Button URL",
+          "placeholder": "#categories"
+        },
+        "shape": {
+          "input_type": "image",
+          "label": "Background shape"
+        }
+      }
+    },
+    "hot_category": {
+      "category-essentials-one": {
+        "title": {
+          "input_type": "text",
+          "label": "Category title",
+          "placeholder": "Shop by category"
+        }
+      },
+      "hot-category-gadgets-four": {
+        "title": {
+          "input_type": "text",
+          "label": "Title"
+        }
+      },
+      "hot-category-gadgets-five": {
+        "title": {
+          "input_type": "text",
+          "label": "Category title",
+          "placeholder": "Category"
+        }
+      },
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "assistant": {
+      "assistant-luminex": {
+        "logo": {
+          "input_type": "image",
+          "label": "Assistant logo"
+        },
+        "name": {
+          "input_type": "text",
+          "label": "Assistant name"
+        },
+        "description": {
+          "input_type": "text",
+          "label": "Description"
+        },
+        "accessibility_label": {
+          "input_type": "text",
+          "label": "Accessibility label"
+        },
+        "button_url": {
+          "input_type": "url",
+          "label": "Button URL",
+          "placeholder": "/assistant"
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Home & Kitchen": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        }
+      }
+    },
+    "hero": {
+      "hero-home-lifestyle": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-split-spotlight": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        },
+        "primary_image": {
+          "input_type": "image",
+          "label": "Primary image"
+        },
+        "secondary_image": {
+          "input_type": "image",
+          "label": "Secondary image"
+        }
+      },
+      "hero-classic": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      }
+    },
+    "hot_category": {
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "top_seller": {
+      "top-seller-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "top-seller-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_deals": {
+      "group-deals-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-deals-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "on_sale": {
+      "on-sale-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "on-sale-spotlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Health & Beauty": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        }
+      }
+    },
+    "hero": {
+      "hero-beauty-glow": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-classic": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      }
+    },
+    "hot_category": {
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "top_seller": {
+      "top-seller-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "top-seller-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_deals": {
+      "group-deals-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-deals-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "on_sale": {
+      "on-sale-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "on-sale-spotlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Sports & Fitness": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        }
+      }
+    },
+    "hero": {
+      "hero-sports-performance": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-split-spotlight": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        },
+        "primary_image": {
+          "input_type": "image",
+          "label": "Primary image"
+        },
+        "secondary_image": {
+          "input_type": "image",
+          "label": "Secondary image"
+        }
+      },
+      "hero-classic": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      }
+    },
+    "hot_category": {
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "top_seller": {
+      "top-seller-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "top-seller-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_deals": {
+      "group-deals-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-deals-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "on_sale": {
+      "on-sale-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "on-sale-spotlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Jewelry & Accessories": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        }
+      }
+    },
+    "hero": {
+      "hero-jewelry-luxe": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-classic": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      }
+    },
+    "hot_category": {
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "top_seller": {
+      "top-seller-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "top-seller-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_deals": {
+      "group-deals-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-deals-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "on_sale": {
+      "on-sale-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "on-sale-spotlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  },
+  "Books & Stationery": {
+    "header": {
+      "header-default": {
+        "brand_name": {
+          "input_type": "text",
+          "label": "Brand name",
+          "placeholder": "Store name"
+        },
+        "logo": {
+          "input_type": "image",
+          "label": "Logo"
+        },
+        "show_search": {
+          "input_type": "boolean",
+          "label": "Show search",
+          "default": true
+        }
+      }
+    },
+    "hero": {
+      "hero-books-editorial": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      },
+      "hero-split-spotlight": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        },
+        "primary_image": {
+          "input_type": "image",
+          "label": "Primary image"
+        },
+        "secondary_image": {
+          "input_type": "image",
+          "label": "Secondary image"
+        }
+      },
+      "hero-classic": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Eyebrow",
+          "placeholder": "New collection"
+        },
+        "title": {
+          "input_type": "text",
+          "label": "Title",
+          "placeholder": "Hero title"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "image": {
+          "input_type": "image",
+          "label": "Hero image"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button text",
+          "placeholder": "Shop now"
+        },
+        "button_url": {
+          "input_type": "text",
+          "label": "Button URL",
+          "placeholder": "/products"
+        }
+      }
+    },
+    "hot_category": {
+      "hot-category-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "hot-category-stacked": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "category_grid": {
+      "category-grid-classic": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "category-grid-cards": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "categories"
+          ],
+          "default": "categories"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "parent_id",
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "flash_deal": {
+      "flash-deal-countdown": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "flash-deal-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "best_selling": {
+      "best-selling-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "best-selling-grid": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "top_seller": {
+      "top-seller-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "top-seller-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_deals": {
+      "group-deals-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-deals-compact": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "on_sale": {
+      "on-sale-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "on-sale-spotlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "brand_strip": {
+      "brand-strip-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      },
+      "brand-strip-marquee": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "product_filter": {
+      "product-filter-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "product-filter-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "group_purchase": {
+      "group-purchase-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      },
+      "group-purchase-highlight": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "products"
+          ],
+          "default": "products"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "category_id",
+            "brand_id",
+            "min_price",
+            "max_price",
+            "in_stock",
+            "sort_by",
+            "demand_tag"
+          ]
+        }
+      }
+    },
+    "footer": {
+      "footer-default": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description"
+        },
+        "newsletter_title": {
+          "input_type": "text",
+          "label": "Newsletter title"
+        },
+        "newsletter_placeholder": {
+          "input_type": "text",
+          "label": "Newsletter placeholder"
+        }
+      }
+    }
+  }
+}

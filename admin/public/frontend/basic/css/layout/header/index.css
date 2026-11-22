@@ -1,0 +1,151 @@
+/* HEADER CSS */
+/* transform */
+:root {
+  /**
+  @font family declaration
+  */
+  --ot-title-font: "Jersey 10", sans-serif;
+  --ot-body-font: "Roboto", sans-serif;
+  --ot-font-orbitron: "Orbitron", sans-serif;
+  /**
+  @ripple declaration
+  */
+  --ot-ripple-ani-duration: 2s;
+  /**
+  @color declaration
+  */
+  --ot-theme-color: #6366F1;
+  --ot-theme-color-2: #FF9696;
+  --ot-theme-color-3: #4AC0FB;
+  --ot-title-color: #111827;
+  --ot-body-color: #1F2937;
+  --ot-white-color: #fff;
+  --ot-smoke-color: #E5EBF4;
+  --ot-dark-bg-color: #1E1B4B;
+  --ot-border-color: #1E1B4B;
+}
+
+/*----------------------------------------*/
+/*  3.1 Header Style 1
+/*----------------------------------------*/
+.ot-header-layout1 {
+  padding: 0 90px;
+}
+@media only screen and (min-width: 1400px) and (max-width: 1599px), only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .ot-header-layout1 {
+    padding: 0 15px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ot-header-layout1 {
+    padding: 15px;
+  }
+}
+@media (max-width: 1199px) {
+  .ot-header-layout1.header-transparent {
+    top: 0;
+  }
+}
+@media (max-width: 991px) {
+  .ot-header-layout1 {
+    padding: 0.9375rem;
+  }
+}
+@media (max-width: 575px) {
+  .ot-header-layout1 {
+    padding: 0.9375rem 0;
+  }
+}
+.ot-header-layout1 .ot-main-menu > nav > ul > li a {
+  color: var(--ot-title-color);
+}
+.ot-header-layout1 .ot-main-menu > nav > ul > li a:hover {
+  color: var(--ot-theme-color);
+}
+.ot-header-layout1.header-sticky .ot-main-menu > nav > ul > li a {
+  padding: 20px 0;
+}
+.ot-header-layout1.header-sticky .ot-main-menu > nav > ul > li .submenu li a {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
+  .ot-header-layout1.header-sticky {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+.ot-header-right-bars {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--ot-title-color);
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+
+.header-transparent {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  z-index: 20;
+}
+@media (max-width: 991px) {
+  .header-transparent {
+    top: 10px;
+  }
+}
+
+.header-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  width: 100%;
+  z-index: 99;
+  visibility: visible;
+  transform: translateY(0);
+  background-color: var(--ot-smoke-color);
+  transition: transform 0.35s ease, opacity 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.header-sticky.header-hidden {
+  transform: translateY(-110%);
+  opacity: 0.98;
+}
+
+.submenu-widget-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+.submenu-widget-item:first-child {
+  padding-top: 0;
+}
+.submenu-widget-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ot-title-color);
+  font-family: var(--ot-body-font);
+  color: var(--ot-theme-color);
+  margin-bottom: 1.25rem;
+}
+.submenu-widget-dsc {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #4b5563;
+  margin-bottom: 0;
+}
+.submenu-widget-menu {
+  font-weight: 500;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  color: var(--ot-white-color);
+}
+.submenu-widget-menu .widget-icon {
+  margin-right: 4px;
+}
+
+/*# sourceMappingURL=index.css.map */

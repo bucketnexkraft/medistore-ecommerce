@@ -1,0 +1,15 @@
+{
+    "app_name": "stoqio",
+    "menu.dashboard": "Dashboard",
+    "menu.products": "Products",
+    "menu.sales": "Sales",
+    "menu.purchases": "Purchases",
+    "menu.customers": "Customers",
+    "menu.waitlist": "Waitlist",
+    "button.save": "Save",
+    "button.cancel": "Cancel",
+    "button.edit": "Edit",
+    "button.delete": "Delete",
+    "message.success": "Success",
+    "message.error": "Something went wrong"
+}

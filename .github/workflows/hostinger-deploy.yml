@@ -1,0 +1,245 @@
+name: Validate and deploy Hostinger apps
+
+on:
+  push:
+    branches:
+      - "medex-demo-site(only-for-demo)"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-medex-demo-site
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: "20"
+  PHP_VERSION: "8.2"
+  PRODUCTION_API_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+  PRODUCTION_API_V1_URL: ${{ vars.PRODUCTION_API_V1_URL || 'https://medistoreapi.nexkraft.com/api/v1' }}
+  PRODUCTION_ADMIN_URL: ${{ vars.PRODUCTION_ADMIN_URL || 'https://medistoreadmin.nexkraft.com' }}
+  PRODUCTION_STOREFRONT_URL: ${{ vars.PRODUCTION_STOREFRONT_URL || 'https://medistore.nexkraft.com' }}
+
+jobs:
+  storefront:
+    name: Build storefront
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_API_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+      NEXT_PUBLIC_API_BASE_URL: ${{ vars.PRODUCTION_API_V1_URL || 'https://medistoreapi.nexkraft.com/api/v1' }}
+      NEXT_PUBLIC_ADMIN_URL: ${{ vars.PRODUCTION_ADMIN_URL || 'https://medistoreadmin.nexkraft.com' }}
+      NEXT_PUBLIC_STORE_URL: ${{ vars.PRODUCTION_STOREFRONT_URL || 'https://medistore.nexkraft.com' }}
+      NEXT_PUBLIC_STORAGE_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+    steps:
+      - name: Check out deployment branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install storefront dependencies
+        run: npm ci
+
+      - name: Build storefront
+        run: npm run build
+
+  admin:
+    name: Build admin
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: admin
+    env:
+      VITE_API_URL: ${{ vars.PRODUCTION_API_V1_URL || 'https://medistoreapi.nexkraft.com/api/v1' }}
+      VITE_API_BASE_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+    steps:
+      - name: Check out deployment branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: admin/package-lock.json
+
+      - name: Install admin dependencies
+        run: npm ci
+
+      - name: Build admin
+        run: npm run build
+
+  api:
+    name: Validate API
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - name: Check out deployment branch
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          tools: composer:v2
+          coverage: none
+
+      - name: Validate Composer files
+        run: composer validate --no-check-publish
+
+      - name: Install API dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Validate Laravel routes
+        run: php artisan route:list --path=api/v1
+
+  sync-target:
+    name: Sync deployment repository
+    needs: [storefront, admin, api]
+    if: github.repository == 'OrFactor/Arcade'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TARGET_REPOSITORY: bucketnexkraft/medistore-ecommerce
+      TARGET_BRANCH: medex-demo-site(only-for-demo)
+      TARGET_REPO_TOKEN: ${{ secrets.TARGET_REPO_TOKEN }}
+    steps:
+      - name: Check out source branch
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Require target repository token
+        shell: bash
+        run: |
+          test -n "$TARGET_REPO_TOKEN" || {
+            echo "Missing TARGET_REPO_TOKEN secret"
+            exit 1
+          }
+
+      - name: Check out target deployment branch
+        shell: bash
+        run: |
+          git clone "https://x-access-token:${TARGET_REPO_TOKEN}@github.com/${TARGET_REPOSITORY}.git" target
+
+          if git -C target show-ref --verify --quiet "refs/remotes/origin/${TARGET_BRANCH}"; then
+            git -C target checkout -B "$TARGET_BRANCH" "origin/$TARGET_BRANCH"
+          else
+            git -C target checkout --orphan "$TARGET_BRANCH"
+          fi
+
+      - name: Copy deployable applications
+        shell: bash
+        run: |
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='/landing/' \
+            --exclude='/.env' \
+            --exclude='/admin/.env' \
+            --exclude='/api/.env' \
+            --exclude='*.sql' \
+            --exclude='*.sql.gz' \
+            --exclude='*.dump' \
+            --exclude='*.log' \
+            source/ target/
+
+      - name: Commit and push synchronized code
+        shell: bash
+        run: |
+          git -C target config user.name "Arcade deployment sync"
+          git -C target config user.email "actions@users.noreply.github.com"
+          git -C target add --all
+
+          if git -C target diff --cached --quiet; then
+            echo "Target repository is already synchronized."
+            exit 0
+          fi
+
+          git -C target commit -m "Sync Arcade ${GITHUB_SHA}"
+          git -C target push origin "HEAD:refs/heads/${TARGET_BRANCH}"
+
+  deploy-api:
+    name: Deploy API to Hostinger
+    needs: [storefront, admin, api]
+    if: github.repository == 'bucketnexkraft/medistore-ecommerce'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    env:
+      HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+      HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+      HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+      HOSTINGER_SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+      HOSTINGER_API_DEPLOY_PATH: ${{ vars.HOSTINGER_API_DEPLOY_PATH }}
+    steps:
+      - name: Require Hostinger deployment settings
+        shell: bash
+        run: |
+          test -n "$HOSTINGER_SSH_HOST" || { echo "Missing HOSTINGER_SSH_HOST secret"; exit 1; }
+          test -n "$HOSTINGER_SSH_PORT" || { echo "Missing HOSTINGER_SSH_PORT secret"; exit 1; }
+          test -n "$HOSTINGER_SSH_USER" || { echo "Missing HOSTINGER_SSH_USER secret"; exit 1; }
+          test -n "$HOSTINGER_SSH_PRIVATE_KEY" || { echo "Missing HOSTINGER_SSH_PRIVATE_KEY secret"; exit 1; }
+          test -n "$HOSTINGER_API_DEPLOY_PATH" || { echo "Missing HOSTINGER_API_DEPLOY_PATH variable"; exit 1; }
+          case "$HOSTINGER_API_DEPLOY_PATH" in
+            /|/home|/home/) echo "Unsafe HOSTINGER_API_DEPLOY_PATH"; exit 1 ;;
+          esac
+
+      - name: Configure SSH
+        shell: bash
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$HOSTINGER_SSH_PRIVATE_KEY" > ~/.ssh/hostinger
+          chmod 600 ~/.ssh/hostinger
+          ssh-keyscan -p "$HOSTINGER_SSH_PORT" -H "$HOSTINGER_SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Pull branch and update Laravel
+        shell: bash
+        run: |
+          quoted_path=$(printf '%q' "$HOSTINGER_API_DEPLOY_PATH")
+          quoted_branch=$(printf '%q' "$GITHUB_REF_NAME")
+          ssh -i ~/.ssh/hostinger -p "$HOSTINGER_SSH_PORT" "$HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST" \
+            "DEPLOY_PATH=$quoted_path DEPLOY_BRANCH=$quoted_branch bash -s" <<'REMOTE'
+          set -Eeuo pipefail
+
+          test -d "$DEPLOY_PATH/.git" || {
+            echo "The Hostinger API deploy path is not an initialized Git checkout: $DEPLOY_PATH"
+            exit 1
+          }
+
+          cd "$DEPLOY_PATH"
+          git fetch --prune origin "$DEPLOY_BRANCH"
+          git checkout "$DEPLOY_BRANCH"
+          git reset --hard "origin/$DEPLOY_BRANCH"
+
+          cd api
+          test -f .env || {
+            echo "Missing persistent api/.env on Hostinger"
+            exit 1
+          }
+
+          php artisan down --retry=30 || true
+          trap 'php artisan up || true' EXIT
+
+          if command -v composer2 >/dev/null 2>&1; then
+            composer2 install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+          else
+            composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+          fi
+
+          php artisan migrate --force
+          php artisan storage:link || true
+          php artisan optimize:clear
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          php artisan up
+          trap - EXIT
+          REMOTE

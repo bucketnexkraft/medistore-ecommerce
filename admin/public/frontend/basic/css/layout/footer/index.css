@@ -1,0 +1,533 @@
+/* transform */
+:root {
+  /**
+  @font family declaration
+  */
+  --ot-title-font: "Jersey 10", sans-serif;
+  --ot-body-font: "Roboto", sans-serif;
+  --ot-font-orbitron: "Orbitron", sans-serif;
+  /**
+  @ripple declaration
+  */
+  --ot-ripple-ani-duration: 2s;
+  /**
+  @color declaration
+  */
+  --ot-theme-color: #6366F1;
+  --ot-theme-color-2: #FF9696;
+  --ot-theme-color-3: #4AC0FB;
+  --ot-title-color: #111827;
+  --ot-body-color: #1F2937;
+  --ot-white-color: #fff;
+  --ot-smoke-color: #E5EBF4;
+  --ot-dark-bg-color: #1E1B4B;
+  --ot-border-color: #1E1B4B;
+}
+
+/*----------------------------------------*/
+/*  6.1 Footer Style 1
+/*----------------------------------------*/
+.ot-footer-style {
+  position: relative;
+}
+.ot-footer-style .container {
+  max-width: 103.5rem;
+  padding-inline: 1.75rem;
+}
+.ot-footer-bg-color {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.ot-footer-wrap {
+  padding: 5rem 0 0 0;
+}
+.ot-footer-top-row {
+  --bs-gutter-x: 1.875rem;
+  --bs-gutter-y: 2.25rem;
+  align-items: flex-start;
+}
+.ot-footer-newsletter {
+  max-width: 31.75rem;
+  padding-top: 8.5rem;
+  padding-left: 0.25rem;
+  width: 100%;
+}
+.ot-footer-newsletter-title {
+  font-family: var(--ot-body-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #f9fafb;
+  margin-bottom: 1.75rem;
+}
+.ot-footer-newsletter-form {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: 27.25rem;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+}
+.ot-footer-newsletter-form input {
+  width: 100%;
+  height: 3.0625rem;
+  border: 0;
+  outline: 0;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--ot-title-color);
+  background: #dedede;
+}
+.ot-footer-newsletter-form input::placeholder {
+  color: #6d6d6d;
+  text-transform: capitalize;
+}
+.ot-footer-newsletter-form button {
+  flex: 0 0 auto;
+  border: 0;
+  padding: 0 1.1875rem;
+  font-family: var(--ot-font-orbitron);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ot-white-color);
+  background: #312e81;
+  text-transform: capitalize;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.ot-footer-newsletter-form button:hover {
+  background: #99a3ff;
+}
+.ot-footer-links-row {
+  --bs-gutter-x: 1.125rem;
+  --bs-gutter-y: 1.25rem;
+  padding-left: 2.625rem;
+  justify-content: space-between;
+  row-gap: 1.25rem;
+}
+.ot-footer-widget-title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-family: var(--ot-body-font);
+  line-height: 1.2;
+  color: var(--ot-white-color);
+  margin-bottom: 2.5rem;
+}
+.ot-footer-widget-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ot-footer-widget-menu li:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.ot-footer-widget-menu a {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  color: #eef2ff;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.ot-footer-widget-menu a:hover {
+  color: #c7ceff;
+}
+.ot-footer-bottom {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  row-gap: 1.125rem;
+}
+.ot-footer-copyright {
+  font-size: 14.875rem;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.08);
+  font-family: var(--ot-title-font);
+}
+@media only screen and (min-width: 1400px) and (max-width: 1599px) {
+  .ot-footer-copyright {
+    font-size: 12.5rem;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .ot-footer-copyright {
+    font-size: 10.625rem;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ot-footer-copyright {
+    font-size: 8.125rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ot-footer-copyright {
+    font-size: 6.5625rem;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .ot-footer-copyright {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 575px) {
+  .ot-footer-copyright {
+    font-size: 2.5rem;
+  }
+}
+.ot-footer-brand {
+  display: inline-flex;
+  justify-self: center;
+}
+.ot-footer-brand img {
+  width: auto;
+  max-width: 17.875rem;
+  height: 4.375rem;
+  object-fit: contain;
+}
+.ot-footer-policy {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.125rem;
+}
+.ot-footer-policy a {
+  position: relative;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.ot-footer-policy a:hover {
+  color: #c7ceff;
+}
+.ot-footer-policy a + a::before {
+  content: "";
+  position: absolute;
+  left: -0.625rem;
+  top: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-50%);
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1599px) {
+  .ot-footer-newsletter {
+    padding-top: 7.375rem;
+  }
+  .ot-footer-newsletter-title {
+    font-size: 2rem;
+  }
+  .ot-footer-links-row {
+    padding-left: 1.75rem;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .ot-footer-wrap {
+    padding: 3rem 0 3.5rem;
+  }
+  .ot-footer-newsletter {
+    max-width: 28.75rem;
+    padding-top: 5.75rem;
+  }
+  .ot-footer-newsletter-title {
+    font-size: 1.875rem;
+  }
+  .ot-footer-newsletter-form input {
+    height: 3rem;
+  }
+  .ot-footer-newsletter-form button {
+    min-width: 7.5rem;
+    font-size: 1.125rem;
+  }
+  .ot-footer-links-row {
+    padding-left: 1.125rem;
+    --bs-gutter-x: 0.875rem;
+  }
+  .ot-footer-widget-title {
+    font-size: 1.4375rem;
+    margin-bottom: 1.875rem;
+  }
+  .ot-footer-widget-menu a {
+    font-size: 0.9375rem;
+  }
+  .ot-footer-widget-menu li:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ot-footer-newsletter {
+    max-width: 100%;
+    padding-top: 0;
+    padding-left: 0;
+    margin: 0 auto;
+  }
+  .ot-footer-newsletter-title {
+    font-size: 2.125rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .ot-footer-newsletter-form {
+    max-width: 27.5rem;
+    margin: 0 auto;
+  }
+  .ot-footer-links-row {
+    padding-left: 0;
+    margin-top: 1.25rem;
+    --bs-gutter-x: 1.625rem;
+    --bs-gutter-y: 1.75rem;
+    justify-content: flex-start;
+  }
+  .ot-footer-widget {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .ot-footer-divider {
+    margin: 2.625rem 0;
+  }
+  .ot-footer-bottom {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .ot-footer-policy {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ot-footer-style .container {
+    padding-inline: 1.5rem;
+  }
+  .ot-footer-wrap {
+    padding: 3.5rem 0 2.75rem;
+  }
+  .ot-footer-newsletter {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .ot-footer-newsletter-title {
+    font-size: 1.875rem;
+  }
+  .ot-footer-newsletter-form {
+    max-width: 31.25rem;
+  }
+  .ot-footer-newsletter-form input {
+    height: 3.25rem;
+    padding: 0 1.125rem;
+  }
+  .ot-footer-newsletter-form button {
+    min-width: 8.25rem;
+    padding: 0 1.375rem;
+    font-size: 1.125rem;
+  }
+  .ot-footer-widget-title {
+    font-size: 1.375rem;
+    margin-bottom: 1.375rem;
+  }
+  .ot-footer-links-row {
+    padding-left: 0;
+    --bs-gutter-x: 1.375rem;
+    --bs-gutter-y: 1.5rem;
+    justify-content: flex-start;
+    margin-top: 1.125rem;
+  }
+  .ot-footer-widget {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .ot-footer-widget-menu a {
+    font-size: 1rem;
+  }
+  .ot-footer-widget-menu li:not(:last-child) {
+    margin-bottom: 1.125rem;
+  }
+  .ot-footer-divider {
+    margin: 2.25rem 0;
+  }
+  .ot-footer-policy a {
+    font-size: 1rem;
+  }
+  .ot-footer-brand img {
+    height: 3.75rem;
+    max-width: 15rem;
+  }
+  .ot-footer-policy {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.625rem 1.125rem;
+  }
+  .ot-footer-policy a + a::before {
+    left: -0.6875rem;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .ot-footer-style .container {
+    padding-inline: 1.25rem;
+  }
+  .ot-footer-wrap {
+    padding: 3rem 0 2.375rem;
+  }
+  .ot-footer-newsletter {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .ot-footer-newsletter-title {
+    font-size: 1.75rem;
+    text-align: left;
+  }
+  .ot-footer-newsletter-form {
+    flex-direction: column;
+    border-radius: 0.75rem;
+    background: transparent;
+    gap: 0.75rem;
+    max-width: 100%;
+  }
+  .ot-footer-newsletter-form input {
+    height: 3.5rem;
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .ot-footer-newsletter-form button {
+    min-width: 100%;
+    min-height: 3.375rem;
+    border-radius: 0.625rem;
+  }
+  .ot-footer-links-row {
+    padding-left: 0;
+    --bs-gutter-x: 1.125rem;
+    --bs-gutter-y: 1.5rem;
+    margin-top: 0.625rem;
+  }
+  .ot-footer-widget-title {
+    font-size: 1.375rem;
+    margin-bottom: 1.125rem;
+  }
+  .ot-footer-widget {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .ot-footer-divider {
+    margin: 1.875rem 0;
+  }
+  .ot-footer-bottom {
+    gap: 0.875rem;
+  }
+  .ot-footer-policy {
+    flex-wrap: wrap;
+    gap: 0.625rem 1.125rem;
+  }
+  .ot-footer-policy a + a::before {
+    display: none;
+  }
+}
+@media (max-width: 575px) {
+  .ot-footer-style .container {
+    padding-inline: 1rem;
+  }
+  .ot-footer-wrap {
+    padding: 2.625rem 0 2.125rem;
+  }
+  .ot-footer-newsletter {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+    padding-left: 0;
+  }
+  .ot-footer-newsletter-title {
+    font-size: 1.625rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+  .ot-footer-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 0.75rem;
+    overflow: visible;
+    gap: 0.625rem;
+  }
+  .ot-footer-newsletter-form input {
+    height: 3.25rem;
+    padding: 0 1rem;
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .ot-footer-newsletter-form button {
+    min-width: 100%;
+    min-height: 3.125rem;
+    font-size: 1.0625rem;
+    border-radius: 0.625rem;
+  }
+  .ot-footer-widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.875rem;
+  }
+  .ot-footer-widget {
+    margin-left: 0;
+  }
+  .ot-footer-links-row {
+    padding-left: 0;
+    --bs-gutter-y: 1.25rem;
+    margin-top: 0.375rem;
+  }
+  .ot-footer-widget-menu li:not(:last-child) {
+    margin-bottom: 0.875rem;
+  }
+  .ot-footer-widget-menu a {
+    font-size: 1rem;
+  }
+  .ot-footer-brand img {
+    height: 3.25rem;
+    max-width: 13.125rem;
+  }
+  .ot-footer-policy a {
+    font-size: 0.9375rem;
+  }
+  .ot-footer-policy {
+    justify-content: flex-start;
+    gap: 0.5rem 1rem;
+  }
+  .ot-footer-policy a + a::before {
+    display: none;
+  }
+  .ot-footer-bottom {
+    grid-template-columns: auto;
+    justify-items: flex-start;
+    text-align: center;
+    justify-content: center;
+  }
+  .ot-footer-brand {
+    justify-self: flex-start;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
