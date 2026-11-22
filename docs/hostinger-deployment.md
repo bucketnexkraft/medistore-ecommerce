@@ -6,7 +6,7 @@ The deployable applications are:
 
 | Application | Repository root | Suggested URL | Hostinger type |
 | --- | --- | --- | --- |
-| Storefront | `./` | `https://medistore.nexkraft.com` | Next.js Web App |
+| Storefront | `./` | `https://medistore.nexkraft.com` | Next.js on the storefront VPS |
 | Admin | built `admin/dist` files | `https://medistoreadmin.nexkraft.com` | Static website |
 | API | contents of `api` | `https://medistoreapi.nexkraft.com` | PHP/Laravel site |
 
@@ -30,6 +30,7 @@ In the **target** repository (`bucketnexkraft/medistore-ecommerce`), create thes
 | `PRODUCTION_API_V1_URL` | `https://medistoreapi.nexkraft.com/api/v1` |
 | `PRODUCTION_ADMIN_URL` | `https://medistoreadmin.nexkraft.com` |
 | `PRODUCTION_STOREFRONT_URL` | `https://medistore.nexkraft.com` |
+| `PRODUCTION_PLATFORM_ROOT_DOMAIN` | `nexkraft.com` |
 | `HOSTINGER_API_DEPLOY_PATH` | `/home/u679789475/domains/nexkraft.com/public_html/medistoreapi` |
 | `HOSTINGER_ADMIN_DEPLOY_PATH` | `/home/u679789475/domains/nexkraft.com/public_html/medistoreadmin` |
 
@@ -44,7 +45,103 @@ Create these secrets in the **target** repository:
 
 The workflow uses the GitHub `production` environment for the API/admin deployment. The four `PRODUCTION_*` values must remain **repository variables** because the build jobs do not use that environment. The four `HOSTINGER_SSH_*` values may be repository secrets or secrets in the `production` environment. The two `HOSTINGER_*_DEPLOY_PATH` values may be repository variables or variables in that environment; using the repository locations for all values is the simplest setup.
 
-## 2. Storefront web app
+## 2. Storefront VPS
+
+The target repository builds the storefront as a standalone Next.js server and deploys it to a separate VPS. The API and admin remain on Hostinger. Create these secrets in `bucketnexkraft/medistore-ecommerce`:
+
+| Secret | Purpose |
+| --- | --- |
+| `STOREFRONT_VPS_HOST` | VPS IP address or SSH hostname |
+| `STOREFRONT_VPS_PORT` | SSH port, usually `22` |
+| `STOREFRONT_VPS_USER` | Dedicated deployment user |
+| `STOREFRONT_VPS_SSH_PRIVATE_KEY` | Private key authorized for the deployment user |
+
+Create these repository variables:
+
+| Variable | Example |
+| --- | --- |
+| `ENABLE_STOREFRONT_VPS_DEPLOYMENT` | `true` only after the VPS setup is complete |
+| `STOREFRONT_VPS_DEPLOY_PATH` | `/var/www/medistore` |
+| `STOREFRONT_VPS_SERVICE` | `medistore-storefront` |
+| `STOREFRONT_APP_PORT` | `3000` |
+
+The VPS must have Node.js 20, Nginx, and a systemd service configured before the first automated deployment. Create `/etc/systemd/system/medistore-storefront.service` as root, replacing `DEPLOY_USER` if needed:
+
+```ini
+[Unit]
+Description=Medistore Next.js storefront
+After=network.target
+
+[Service]
+Type=simple
+User=DEPLOY_USER
+WorkingDirectory=/var/www/medistore/current
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3000
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable the service after the first release directory exists:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable medistore-storefront
+```
+
+Allow the deployment user to restart only this service without a password. Run `sudo visudo -f /etc/sudoers.d/medistore-storefront` and add:
+
+```text
+DEPLOY_USER ALL=(root) NOPASSWD: /usr/bin/systemctl restart medistore-storefront
+```
+
+Configure Nginx to proxy the public storefront domain to Next.js:
+
+```nginx
+server {
+    listen 80;
+    server_name medistore.nexkraft.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+```
+
+Validate and reload Nginx, then issue the TLS certificate after the `medistore.nexkraft.com` A record points to the VPS:
+
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+sudo certbot --nginx -d medistore.nexkraft.com
+```
+
+The workflow deploys releases under `/var/www/medistore/releases/<commit-sha>`, switches `/var/www/medistore/current`, restarts the dedicated service, and checks the local application port. It runs only for pushes to `medex-demo-site(only-for-demo)`. Keep `ENABLE_STOREFRONT_VPS_DEPLOYMENT` absent or set to `false` until the VPS, service, SSH secrets, and other variables are ready; this keeps the current API/admin deployment unaffected.
+
+The following values are compiled into the storefront during the GitHub Actions build:
+
+```dotenv
+NEXT_PUBLIC_API_URL=https://medistoreapi.nexkraft.com
+NEXT_PUBLIC_API_BASE_URL=https://medistoreapi.nexkraft.com/api/v1
+NEXT_PUBLIC_ADMIN_URL=https://medistoreadmin.nexkraft.com
+NEXT_PUBLIC_STORE_URL=https://medistore.nexkraft.com
+NEXT_PUBLIC_STORAGE_URL=https://medistoreapi.nexkraft.com
+NEXT_PUBLIC_PLATFORM_ROOT_DOMAIN=nexkraft.com
+```
+
+## 3. Previous Hostinger Web App option
 
 In Hostinger, create a Web App for the storefront subdomain and connect `bucketnexkraft/medistore-ecommerce`.
 
@@ -69,11 +166,11 @@ NEXT_PUBLIC_STORAGE_URL=https://medistoreapi.nexkraft.com
 
 Enable automatic deployment for only `medex-demo-site(only-for-demo)`.
 
-## 3. Admin static site
+## 4. Admin static site
 
 Create the `medistoreadmin.nexkraft.com` directory as a static PHP/HTML website. GitHub Actions builds Vite with the `PRODUCTION_*` repository variables and uploads the contents of `admin/dist` directly to `HOSTINGER_ADMIN_DEPLOY_PATH`. The generated artifact includes `admin/public/.htaccess` for React Router fallback. No Git checkout, Node runtime, or server-side admin `.env` is required.
 
-## 4. API direct deployment
+## 5. API direct deployment
 
 Create the API subdomain as a PHP website using PHP 8.2 or newer. Do not initialize Git in this folder. Before the first deployment, create the persistent production environment file directly at the API document root:
 
@@ -86,7 +183,7 @@ GitHub Actions uploads the contents of the repository's `api` directory directly
 
 The deployment then installs production Composer dependencies, creates required storage directories, refreshes Laravel caches, and brings the API out of maintenance mode. It does not run migrations because the production database is imported separately.
 
-## 5. Production API environment
+## 6. Production API environment
 
 At minimum, set these values in the persistent Hostinger `medistoreapi/.env` alongside the database, mail, JWT, and payment credentials:
 
@@ -104,9 +201,9 @@ LOCAL_ECOMMERCE_DOMAIN=
 
 The Kawsar storefront company must keep `medistore.nexkraft.com` as its `domain` or verified `custom_domain`. This ensures public storefront requests resolve only company `6a956fbdd5915-comp-27150314979125825`.
 
-## 6. DNS and health checks
+## 7. DNS and health checks
 
-Point all three subdomains to Hostinger and enable SSL before the first production test. After deployment, verify:
+Point `medistore.nexkraft.com` to the storefront VPS. Keep `medistoreapi.nexkraft.com` and `medistoreadmin.nexkraft.com` pointed to Hostinger. Enable SSL on all three services before the first production test. After deployment, verify:
 
 ```text
 https://medistoreapi.nexkraft.com/api/v1/install-status

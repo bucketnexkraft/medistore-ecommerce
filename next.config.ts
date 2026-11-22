@@ -92,6 +92,7 @@ const remotePatterns = [
 ].filter(Boolean) as NonNullable<NextConfig["images"]>["remotePatterns"];
 
 const nextConfig: NextConfig = {
+	output: "standalone",
 	allowedDevOrigins: ["arcade.orfactor.com"],
 	images: {
 		remotePatterns,

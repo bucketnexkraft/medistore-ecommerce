@@ -31,6 +31,7 @@ jobs:
       NEXT_PUBLIC_ADMIN_URL: ${{ vars.PRODUCTION_ADMIN_URL || 'https://medistoreadmin.nexkraft.com' }}
       NEXT_PUBLIC_STORE_URL: ${{ vars.PRODUCTION_STOREFRONT_URL || 'https://medistore.nexkraft.com' }}
       NEXT_PUBLIC_STORAGE_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+      NEXT_PUBLIC_PLATFORM_ROOT_DOMAIN: ${{ vars.PRODUCTION_PLATFORM_ROOT_DOMAIN || 'nexkraft.com' }}
     steps:
       - name: Check out deployment branch
         uses: actions/checkout@v4
@@ -46,6 +47,50 @@ jobs:
 
       - name: Build storefront
         run: npm run build
+
+  storefront-vps:
+    name: Build storefront VPS release
+    if: github.repository == 'bucketnexkraft/medistore-ecommerce' && vars.ENABLE_STOREFRONT_VPS_DEPLOYMENT == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_API_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+      NEXT_PUBLIC_API_BASE_URL: ${{ vars.PRODUCTION_API_V1_URL || 'https://medistoreapi.nexkraft.com/api/v1' }}
+      NEXT_PUBLIC_ADMIN_URL: ${{ vars.PRODUCTION_ADMIN_URL || 'https://medistoreadmin.nexkraft.com' }}
+      NEXT_PUBLIC_STORE_URL: ${{ vars.PRODUCTION_STOREFRONT_URL || 'https://medistore.nexkraft.com' }}
+      NEXT_PUBLIC_STORAGE_URL: ${{ vars.PRODUCTION_API_URL || 'https://medistoreapi.nexkraft.com' }}
+      NEXT_PUBLIC_PLATFORM_ROOT_DOMAIN: ${{ vars.PRODUCTION_PLATFORM_ROOT_DOMAIN || 'nexkraft.com' }}
+    steps:
+      - name: Check out storefront source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install storefront dependencies
+        run: npm ci
+
+      - name: Build standalone storefront
+        run: npm run build
+
+      - name: Package standalone storefront
+        shell: bash
+        run: |
+          cp -a public .next/standalone/public
+          mkdir -p .next/standalone/.next
+          cp -a .next/static .next/standalone/.next/static
+
+      - name: Upload storefront deployment artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: storefront-standalone
+          path: .next/standalone
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 1
 
   admin:
     name: Build admin
@@ -293,4 +338,119 @@ jobs:
           php artisan view:cache
           php artisan up
           trap - EXIT
+          REMOTE
+
+  deploy-storefront-vps:
+    name: Deploy storefront to VPS
+    needs: storefront-vps
+    if: github.repository == 'bucketnexkraft/medistore-ecommerce' && vars.ENABLE_STOREFRONT_VPS_DEPLOYMENT == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    env:
+      STOREFRONT_VPS_HOST: ${{ secrets.STOREFRONT_VPS_HOST }}
+      STOREFRONT_VPS_PORT: ${{ secrets.STOREFRONT_VPS_PORT }}
+      STOREFRONT_VPS_USER: ${{ secrets.STOREFRONT_VPS_USER }}
+      STOREFRONT_VPS_SSH_PRIVATE_KEY: ${{ secrets.STOREFRONT_VPS_SSH_PRIVATE_KEY }}
+      STOREFRONT_VPS_DEPLOY_PATH: ${{ vars.STOREFRONT_VPS_DEPLOY_PATH }}
+      STOREFRONT_VPS_SERVICE: ${{ vars.STOREFRONT_VPS_SERVICE }}
+      STOREFRONT_APP_PORT: ${{ vars.STOREFRONT_APP_PORT || '3000' }}
+    steps:
+      - name: Download storefront deployment artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storefront-standalone
+          path: storefront-standalone
+
+      - name: Require VPS deployment settings
+        shell: bash
+        run: |
+          test -n "$STOREFRONT_VPS_HOST" || { echo "Missing STOREFRONT_VPS_HOST secret"; exit 1; }
+          test -n "$STOREFRONT_VPS_PORT" || { echo "Missing STOREFRONT_VPS_PORT secret"; exit 1; }
+          test -n "$STOREFRONT_VPS_USER" || { echo "Missing STOREFRONT_VPS_USER secret"; exit 1; }
+          test -n "$STOREFRONT_VPS_SSH_PRIVATE_KEY" || { echo "Missing STOREFRONT_VPS_SSH_PRIVATE_KEY secret"; exit 1; }
+          test -n "$STOREFRONT_VPS_DEPLOY_PATH" || { echo "Missing STOREFRONT_VPS_DEPLOY_PATH variable"; exit 1; }
+          test -n "$STOREFRONT_VPS_SERVICE" || { echo "Missing STOREFRONT_VPS_SERVICE variable"; exit 1; }
+
+          case "$STOREFRONT_VPS_DEPLOY_PATH" in
+            /*) ;;
+            *) echo "STOREFRONT_VPS_DEPLOY_PATH must be an absolute path"; exit 1 ;;
+          esac
+
+          case "$STOREFRONT_VPS_DEPLOY_PATH" in
+            /|/home|/var|/usr|/etc) echo "STOREFRONT_VPS_DEPLOY_PATH is too broad"; exit 1 ;;
+          esac
+
+          case "$STOREFRONT_APP_PORT" in
+            ''|*[!0-9]*) echo "STOREFRONT_APP_PORT must be numeric"; exit 1 ;;
+          esac
+
+      - name: Configure VPS SSH
+        shell: bash
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$STOREFRONT_VPS_SSH_PRIVATE_KEY" > ~/.ssh/storefront-vps
+          chmod 600 ~/.ssh/storefront-vps
+          ssh-keyscan -p "$STOREFRONT_VPS_PORT" -H "$STOREFRONT_VPS_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload storefront release
+        shell: bash
+        run: |
+          release_path="$STOREFRONT_VPS_DEPLOY_PATH/releases/$GITHUB_SHA"
+          quoted_release_path=$(printf '%q' "$release_path")
+
+          ssh -i ~/.ssh/storefront-vps -p "$STOREFRONT_VPS_PORT" \
+            "$STOREFRONT_VPS_USER@$STOREFRONT_VPS_HOST" \
+            "mkdir -p $quoted_release_path"
+
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/storefront-vps -p $STOREFRONT_VPS_PORT" \
+            storefront-standalone/ \
+            "$STOREFRONT_VPS_USER@$STOREFRONT_VPS_HOST:$release_path/"
+
+      - name: Activate storefront release
+        shell: bash
+        run: |
+          quoted_deploy_path=$(printf '%q' "$STOREFRONT_VPS_DEPLOY_PATH")
+          quoted_release_path=$(printf '%q' "$STOREFRONT_VPS_DEPLOY_PATH/releases/$GITHUB_SHA")
+          quoted_service=$(printf '%q' "$STOREFRONT_VPS_SERVICE")
+          quoted_port=$(printf '%q' "$STOREFRONT_APP_PORT")
+
+          ssh -i ~/.ssh/storefront-vps -p "$STOREFRONT_VPS_PORT" \
+            "$STOREFRONT_VPS_USER@$STOREFRONT_VPS_HOST" \
+            "DEPLOY_PATH=$quoted_deploy_path RELEASE_PATH=$quoted_release_path SERVICE_NAME=$quoted_service APP_PORT=$quoted_port bash -s" <<'REMOTE'
+          set -Eeuo pipefail
+
+          test -f "$RELEASE_PATH/server.js" || {
+            echo "Standalone Next.js server was not uploaded to $RELEASE_PATH"
+            exit 1
+          }
+
+          mkdir -p "$DEPLOY_PATH/releases"
+          if test -e "$DEPLOY_PATH/current" && ! test -L "$DEPLOY_PATH/current"; then
+            echo "$DEPLOY_PATH/current exists and is not a symlink"
+            exit 1
+          fi
+
+          ln -sfn "$RELEASE_PATH" "$DEPLOY_PATH/current"
+
+          if test "$(id -u)" -eq 0; then
+            systemctl restart "$SERVICE_NAME"
+          elif sudo -n true 2>/dev/null; then
+            sudo -n systemctl restart "$SERVICE_NAME"
+          else
+            echo "The deployment user needs passwordless sudo for systemctl restart $SERVICE_NAME"
+            exit 1
+          fi
+
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --fail --silent --show-error "http://127.0.0.1:$APP_PORT/" >/dev/null; then
+              echo "Storefront is responding on port $APP_PORT"
+              exit 0
+            fi
+            sleep 2
+          done
+
+          echo "Storefront health check failed on port $APP_PORT"
+          exit 1
           REMOTE
