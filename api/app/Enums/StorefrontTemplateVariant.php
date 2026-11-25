@@ -18,6 +18,10 @@ enum StorefrontTemplateVariant: string
     case GroupDeals = 'group_deals';
     case OnSale = 'on_sale';
     case BrandStrip = 'brand_strip';
+    case ServiceHighlights = 'service_highlights';
+    case WhyChooseUs = 'why_choose_us';
+    case Articles = 'articles';
+    case Newsletter = 'newsletter';
     case Footer = 'footer';
     case ProductFilter = 'product_filter';
     case GroupPurchase = 'group_purchase';
@@ -38,6 +42,10 @@ enum StorefrontTemplateVariant: string
             self::GroupDeals => 'Group Deals',
             self::OnSale => 'On Sale',
             self::BrandStrip => 'Brand Strip',
+            self::ServiceHighlights => 'Service Highlights',
+            self::WhyChooseUs => 'Why Choose Us',
+            self::Articles => 'Articles',
+            self::Newsletter => 'Newsletter',
             self::Footer => 'Footer',
             self::ProductFilter => 'Product Filter',
             self::GroupPurchase => 'Group Purchase',
@@ -69,6 +77,10 @@ enum StorefrontTemplateVariant: string
             self::GroupDeals => 'storefront-group-deals',
             self::OnSale => 'storefront-on-sale',
             self::BrandStrip => 'storefront-brand-strip',
+            self::ServiceHighlights => 'storefront-service-highlights',
+            self::WhyChooseUs => 'storefront-why-choose-us',
+            self::Articles => 'storefront-articles',
+            self::Newsletter => 'storefront-newsletter',
             self::Footer => 'storefront-footer',
             self::ProductFilter => 'storefront-product-filter',
             self::GroupPurchase => 'storefront-group-purchase',

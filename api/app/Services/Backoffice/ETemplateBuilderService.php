@@ -13,6 +13,7 @@ use App\Support\StorefrontCategorySectionCatalog;
 use App\Support\StorefrontSectionSchemaRegistry;
 use App\Support\StorefrontCategoryThemeCatalog;
 use App\Support\StorefrontSectionComponentRegistry;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -240,6 +241,8 @@ class ETemplateBuilderService
                 'section_preset_refs' => $this->normalizeSectionPresetRefs($normalizedBuilder['sections']),
             ]);
         });
+
+        Cache::forget("public_template_preview:{$template->id}");
 
         return $template->fresh();
     }

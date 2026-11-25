@@ -98,6 +98,17 @@
           "label": "Search placeholder",
           "placeholder": "Search any product..."
         }
+      },
+      "header-nex-medicine": {
+        "support_phone": {
+          "input_type": "text",
+          "label": "Support phone",
+          "placeholder": "Store phone number"
+        },
+        "inherit_fields": {
+          "preset": "header-default",
+          "keys": ["search_placeholder_text", "social_links"]
+        }
       }
 
     },
@@ -258,6 +269,12 @@
               "label": "Selected"
             }
           }
+        }
+      },
+      "hero-medical": {
+        "inherit_fields": {
+          "preset": "hero-fashion-luxe",
+          "keys": ["left_image", "title", "description", "button_label", "button_url", "right_image", "categories"]
         }
       }
     },
@@ -582,6 +599,287 @@
             "sort_by"
           ]
         }
+      },
+      "brand-showcase": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "subheading": {
+          "input_type": "text",
+          "label": "Subheading"
+        },
+        "authenticity_rate": {
+          "input_type": "text",
+          "label": "Authenticity rate"
+        },
+        "support_availability": {
+          "input_type": "text",
+          "label": "Support availability"
+        },
+        "promotions": {
+          "input_type": "repeater",
+          "label": "Promo cards",
+          "item_fields": {
+            "title": {
+              "input_type": "text",
+              "label": "Title"
+            },
+            "subtitle": {
+              "input_type": "text",
+              "label": "Subtitle"
+            },
+            "description": {
+              "input_type": "textarea",
+              "label": "Description"
+            },
+            "url": {
+              "input_type": "text",
+              "label": "Link"
+            },
+            "image": {
+              "input_type": "image",
+              "label": "Background photo"
+            }
+          }
+        },
+        "data_model": {
+          "input_type": "select",
+          "label": "Data model",
+          "options": [
+            "brands"
+          ],
+          "default": "brands"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Items allowed",
+          "min": 1,
+          "max": 24,
+          "default": 8
+        },
+        "filter": {
+          "input_type": "filters",
+          "label": "Filters",
+          "options": [
+            "featured",
+            "status",
+            "sort_by"
+          ]
+        }
+      }
+    },
+    "service_highlights": {
+      "service-highlights": {
+        "items": {
+          "input_type": "repeater",
+          "label": "Service highlight cards",
+          "default": [
+            { "icon": "shield", "title": "Reliable", "description": "Over 10K+ products" },
+            { "icon": "truck", "title": "Home Delivery", "description": "All over Bangladesh" },
+            { "icon": "payment", "title": "Secure Payment", "description": "100% secure payment" },
+            { "icon": "support", "title": "24/7 Support", "description": "Dedicated support" }
+          ],
+          "item_fields": {
+            "icon": {
+              "input_type": "select",
+              "label": "Icon",
+              "default": "shield",
+              "options": [
+                { "value": "shield", "label": "Shield" },
+                { "value": "truck", "label": "Delivery truck" },
+                { "value": "payment", "label": "Payment card" },
+                { "value": "support", "label": "Support headset" }
+              ]
+            },
+            "title": { "input_type": "text", "label": "Title" },
+            "description": { "input_type": "text", "label": "Description" }
+          }
+        }
+      }
+    },
+    "articles": {
+      "recent-health-articles": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading"
+        },
+        "subheading": {
+          "input_type": "textarea",
+          "label": "Intro text"
+        },
+        "view_all_label": {
+          "input_type": "text",
+          "label": "View all button label",
+          "default": "View All"
+        },
+        "read_more_label": {
+          "input_type": "text",
+          "label": "Read more button label",
+          "default": "Read More"
+        },
+        "items_allow": {
+          "input_type": "number",
+          "label": "Articles to show",
+          "min": 1,
+          "max": 12,
+          "default": 4
+        }
+      }
+    },
+    "newsletter": {
+      "newsletter-subscribe": {
+        "heading": {
+          "input_type": "text",
+          "label": "Heading",
+          "default": "Subscribe to Our Newsletter"
+        },
+        "description": {
+          "input_type": "textarea",
+          "label": "Description",
+          "default": "Get the latest updates on new products, health tips, and exclusive offers delivered straight to your inbox."
+        },
+        "placeholder": {
+          "input_type": "text",
+          "label": "Email placeholder",
+          "default": "Enter your email address"
+        },
+        "button_label": {
+          "input_type": "text",
+          "label": "Button label",
+          "default": "Subscribe"
+        },
+        "privacy_note": {
+          "input_type": "text",
+          "label": "Privacy note",
+          "default": "We respect your privacy. Unsubscribe at any time."
+        }
+      }
+    },
+    "why_choose_us": {
+      "why-choose-us": {
+        "eyebrow": {
+          "input_type": "text",
+          "label": "Label above heading"
+        },
+        "heading": {
+          "input_type": "text",
+          "label": "Heading",
+          "default": "Why Choose Us?"
+        },
+        "subheading": {
+          "input_type": "textarea",
+          "label": "Intro text",
+          "default": "Shop with confidence with clear product information and support throughout your order."
+        },
+        "benefits": {
+          "input_type": "repeater",
+          "label": "Benefit cards",
+          "default": [
+            {
+              "icon": "shield",
+              "title": "Authentic Products",
+              "description": "Find products from trusted brands with clear product and warranty information."
+            },
+            {
+              "icon": "truck",
+              "title": "Reliable Delivery",
+              "description": "Check available delivery options for your address at checkout."
+            },
+            {
+              "icon": "headphones",
+              "title": "Customer Support",
+              "description": "Get help choosing a product or checking the status of an order."
+            },
+            {
+              "icon": "award",
+              "title": "Quality Standards",
+              "description": "Review product specifications before deciding what fits your needs."
+            },
+            {
+              "icon": "returns",
+              "title": "Easy Returns",
+              "description": "Check the return policy for eligibility and how to start a return."
+            },
+            {
+              "icon": "payment",
+              "title": "Secure Payment",
+              "description": "See the available payment methods before placing your order."
+            }
+          ],
+          "item_fields": {
+            "icon": {
+              "input_type": "select",
+              "label": "Icon",
+              "default": "shield",
+              "options": [
+                { "value": "shield", "label": "Shield" },
+                { "value": "truck", "label": "Delivery truck" },
+                { "value": "headphones", "label": "Headphones" },
+                { "value": "award", "label": "Award" },
+                { "value": "returns", "label": "Return arrows" },
+                { "value": "payment", "label": "Credit card" }
+              ]
+            },
+            "title": {
+              "input_type": "text",
+              "label": "Title"
+            },
+            "description": {
+              "input_type": "textarea",
+              "label": "Description"
+            }
+          }
+        },
+        "cta_heading": {
+          "input_type": "text",
+          "label": "Banner heading",
+          "default": "Find what you need"
+        },
+        "cta_description": {
+          "input_type": "textarea",
+          "label": "Banner description",
+          "default": "Explore the catalog to find the right products for your needs."
+        },
+        "browse_label": {
+          "input_type": "text",
+          "label": "Browse button label",
+          "default": "Browse Products"
+        },
+        "browse_url": {
+          "input_type": "text",
+          "label": "Browse button link",
+          "default": "/products"
+        },
+        "contact_label": {
+          "input_type": "text",
+          "label": "Contact button label",
+          "default": "Contact Sales"
+        },
+        "contact_url": {
+          "input_type": "text",
+          "label": "Contact button link",
+          "placeholder": "/contact or mailto:sales@example.com"
+        },
+        "show_stats": {
+          "input_type": "boolean",
+          "label": "Show banner statistics",
+          "default": true
+        },
+        "stats": {
+          "input_type": "repeater",
+          "label": "Banner statistics",
+          "item_fields": {
+            "value": {
+              "input_type": "text",
+              "label": "Value"
+            },
+            "label": {
+              "input_type": "text",
+              "label": "Label"
+            }
+          }
+        }
       }
     },
     "product_filter": {
@@ -757,6 +1055,64 @@
         "newsletter_placeholder": {
           "input_type": "text",
           "label": "Newsletter placeholder"
+        }
+      },
+      "footer-medical": {
+        "heading": { "input_type": "text", "label": "About heading" },
+        "logo": { "input_type": "image", "label": "Footer logo override" },
+        "description": { "input_type": "textarea", "label": "About description" },
+        "address": { "input_type": "textarea", "label": "Store address" },
+        "contact_phone": { "input_type": "text", "label": "Footer phone override" },
+        "contact_email": { "input_type": "text", "label": "Footer email override" },
+        "opening_hours": { "input_type": "text", "label": "Opening hours" },
+        "top_strip": {
+          "input_type": "select",
+          "label": "Footer top strip",
+          "default": "auto",
+          "options": [
+            { "value": "auto", "label": "Automatic" },
+            { "value": "mobile_app", "label": "Mobile app" },
+            { "value": "accreditations", "label": "Accreditations" },
+            { "value": "none", "label": "Hidden" }
+          ]
+        },
+        "app_heading": { "input_type": "text", "label": "Mobile app heading" },
+        "app_description": { "input_type": "textarea", "label": "Mobile app description" },
+        "app_store_url": { "input_type": "text", "label": "App Store URL" },
+        "google_play_url": { "input_type": "text", "label": "Google Play URL" },
+        "newsletter_title": { "input_type": "text", "label": "Newsletter heading" },
+        "newsletter_description": { "input_type": "textarea", "label": "Newsletter description" },
+        "newsletter_placeholder": { "input_type": "text", "label": "Email placeholder" },
+        "accreditations_heading": { "input_type": "text", "label": "Accreditations heading" },
+        "accreditations_description": { "input_type": "textarea", "label": "Accreditations description" },
+        "accreditations": {
+          "input_type": "repeater",
+          "label": "Accreditation and partner cards",
+          "item_fields": {
+            "label": { "input_type": "text", "label": "Name" },
+            "description": { "input_type": "text", "label": "Description" },
+            "image": { "input_type": "image", "label": "Badge or logo" },
+            "url": { "input_type": "text", "label": "Verification or partner link" }
+          }
+        },
+        "payment_methods": {
+          "input_type": "repeater",
+          "label": "Accepted payment methods",
+          "item_fields": {
+            "label": { "input_type": "text", "label": "Payment method name" },
+            "image": { "input_type": "image", "label": "Payment logo" }
+          }
+        },
+        "security_note": { "input_type": "text", "label": "Checkout note" },
+        "copyright": { "input_type": "text", "label": "Copyright" },
+        "legal_note": { "input_type": "text", "label": "Licence or registration details" },
+        "legal_links": {
+          "input_type": "repeater",
+          "label": "Bottom legal links",
+          "item_fields": {
+            "label": { "input_type": "text", "label": "Link label" },
+            "url": { "input_type": "text", "label": "Page URL" }
+          }
         }
       }
     }

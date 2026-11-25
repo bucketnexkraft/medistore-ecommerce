@@ -30,6 +30,26 @@ export const STOREFRONT_INTERNAL_ROUTE_OPTIONS = [
 
 const INTERNAL_ROUTE_SET: Set<string> = new Set(STOREFRONT_INTERNAL_ROUTE_OPTIONS.map((option) => option.value));
 
+export function normalizeStorefrontNavHref(value: string): string {
+	const href = value.trim();
+	if (!href || /[\u0000-\u001f\u007f\\]/.test(href)) return "";
+	if (/^(?:mailto:|tel:|[?#])/i.test(href)) return href;
+	if (/^(?:https?:)?\/\//i.test(href)) {
+		try {
+			new URL(href, "https://storefront.local/");
+			return href;
+		} catch {
+			return "";
+		}
+	}
+	if (/^[a-z][a-z\d+.-]*:/i.test(href)) return "";
+
+	const { pathname, search, hash } = new URL(href, "https://storefront.local/");
+	const route = pathname.replace(/\/$/, "").toLowerCase();
+	const resolvedPath = route === "/login" || route === "/sign-in" ? "/signin" : route === "/product" ? "/products" : pathname;
+	return `${resolvedPath}${search}${hash}`;
+}
+
 export function normalizeStorefrontLinkType(value?: string | null): StorefrontLinkType {
 	if (value === "internal_route" || value === "custom_path" || value === "external_url" || value === "storefront_page") {
 		return value;

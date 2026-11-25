@@ -26,6 +26,7 @@ onClose: () => void;
 storefrontHost?: string | null;
 demoOnly?: boolean;
 desktopTopOffset?: number;
+presentation?: "overlay" | "dropdown";
 }
 
 const megaMenuCache = new Map<string, MegaMenuCategory[]>();
@@ -142,7 +143,9 @@ export function prefetchMegaMenuCategories(storefrontHost?: string | null, demoO
         storefrontHost,
         demoOnly = false,
         desktopTopOffset = 136,
+        presentation = "overlay",
         }: AllCategoriesMegaMenuProps) {
+        const isDropdown = presentation === "dropdown";
         const cacheKey = resolveMegaMenuCacheKey(storefrontHost, demoOnly);
         const [categories, setCategories] = useState<MegaMenuCategory[]>(
             () => megaMenuCache.get(cacheKey) || []
@@ -169,7 +172,7 @@ export function prefetchMegaMenuCategories(storefrontHost?: string | null, demoO
             }, [demoOnly, storefrontHost]);
 
             useEffect(() => {
-            if (!isOpen) return;
+            if (!isOpen || isDropdown) return;
 
             const originalOverflow = document.body.style.overflow;
             document.body.style.overflow = "hidden";
@@ -177,7 +180,7 @@ export function prefetchMegaMenuCategories(storefrontHost?: string | null, demoO
             return () => {
             document.body.style.overflow = originalOverflow;
             };
-            }, [isOpen]);
+            }, [isOpen, isDropdown]);
 
             const currentCategory = useMemo(() => {
             return categories.find((category) => category.id === hoveredCategory);
@@ -189,16 +192,16 @@ export function prefetchMegaMenuCategories(storefrontHost?: string | null, demoO
 
             return (
             <div
-                className="fixed inset-0 z-40"
+                className={isDropdown ? "relative" : "fixed inset-0 z-40"}
                 style={{
                     "--mega-menu-desktop-top": `${desktopTopOffset}px`,
                     "--mega-menu-desktop-max-height": `calc(100vh - ${desktopTopOffset}px)`,
                 } as CSSProperties}
-                onClick={onClose}
+                onClick={isDropdown ? undefined : onClose}
             >
             <div
-                className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-md:h-[calc(100vh-64px)] max-md:overflow-y-auto md:top-[var(--mega-menu-desktop-top)] md:h-[460px] md:max-h-[var(--mega-menu-desktop-max-height)] md:overflow-hidden"
-                onClick={(event) => event.stopPropagation()}
+                className={`${isDropdown ? "" : "absolute top-16 left-0 right-0 md:top-[var(--mega-menu-desktop-top)]"} bg-white border-b border-gray-200 shadow-lg max-md:h-[calc(100vh-64px)] max-md:overflow-y-auto md:h-[460px] md:max-h-[var(--mega-menu-desktop-max-height)] md:overflow-hidden`}
+                onClick={isDropdown ? undefined : (event) => event.stopPropagation()}
             >
                 <div className="section h-full pb-24 md:pb-0">
                     <div className="grid grid-cols-1 md:h-full md:grid-cols-4">
@@ -293,7 +296,7 @@ export function prefetchMegaMenuCategories(storefrontHost?: string | null, demoO
                                 <div className="flex gap-2 overflow-x-auto py-6">
                                     {categories.map((category) => (
                                     <button key={category.id} onClick={()=> setHoveredCategory(category.id)}
-                                        className={`px-3 py-2 rounded-lg whitespace-nowrap text-sm font-medium
+                                        className={`cursor-pointer px-3 py-2 rounded-lg whitespace-nowrap text-sm font-medium
                                         transition-colors ${
                                         hoveredCategory === category.id
                                         ? "bg-[var(--storefront-primary-soft)] text-primary-blue"

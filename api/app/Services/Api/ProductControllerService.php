@@ -25,6 +25,7 @@ use App\Services\ProductSearchService;
 use App\Services\ReturnSetupService;
 use App\Helpers\Helper;
 use App\Support\EcommerceCompanyContext;
+use App\Support\StorefrontDemoProductImages;
 use App\Utils\PermissionUtils;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -1909,11 +1910,13 @@ class ProductControllerService
     public function publicDetails(string $slug)
     {
         $normalizedSlug = strtolower(trim($slug));
-        $companyId = EcommerceCompanyContext::currentCompanyId();
-        $cacheKey = $this->storefrontCacheKey('details:v3:' . $normalizedSlug, $companyId);
+        $demoOnly = request()->boolean('is_demo');
+        $companyId = $demoOnly ? null : EcommerceCompanyContext::currentCompanyId();
+        $cacheKey = $this->storefrontCacheKey(($demoOnly ? 'details:v5:demo:' : 'details:v3:') . $normalizedSlug, $companyId);
 
-        $payload = Cache::remember($cacheKey, now()->addMinutes(2), function () use ($companyId, $normalizedSlug) {
+        $payload = Cache::remember($cacheKey, now()->addMinutes(2), function () use ($companyId, $normalizedSlug, $demoOnly) {
             $product = Product::query()
+                ->when($demoOnly, fn ($query) => $query->withoutGlobalScope('company')->where('is_demo', true))
                 ->when($companyId, fn ($query) => $query->where('company_id', $companyId))
                 ->whereRaw('LOWER(slug) = ?', [$normalizedSlug])
                 ->where('status', 1)
@@ -1991,9 +1994,12 @@ class ProductControllerService
                     ->all();
             }
 
-            $rawFeaturedImage = $product->getRawOriginal('featured_image');
             $rawThumbnail = $product->getRawOriginal('thumbnail');
-            $gallery = collect([$rawThumbnail])
+            $thumbnail = $demoOnly
+                ? StorefrontDemoProductImages::thumbnailForSlug($normalizedSlug)
+                : $this->resolvePublicProductThumbnail($rawThumbnail);
+            $demoImages = $demoOnly ? StorefrontDemoProductImages::forSlug($normalizedSlug) : [];
+            $gallery = $demoOnly ? $demoImages : collect([$rawThumbnail])
                 ->merge($this->rawProductImages($product))
                 ->map(fn ($image) => $this->resolvePublicProductImage($image))
                 ->filter(fn ($image) => is_string($image) && trim($image) !== '')
@@ -2015,6 +2021,7 @@ class ProductControllerService
                 : 0.0;
 
             $relatedProducts = Product::query()
+                ->when($demoOnly, fn ($query) => $query->withoutGlobalScope('company')->where('is_demo', true))
                 ->when($companyId, fn ($query) => $query->where('company_id', $companyId))
                 ->where('status', 1)
                 ->where('is_bundle', false)
@@ -2030,7 +2037,7 @@ class ProductControllerService
                 ->latest('created_at')
                 ->take(4)
                 ->get()
-                ->map(function (Product $related) {
+                ->map(function (Product $related) use ($demoOnly) {
                     $quantity = $this->resolveOnlineStoreQuantity(
                         $related,
                         (float) $related->inventory_items->where('quantity', '>', 0)->sum('quantity')
@@ -2046,7 +2053,9 @@ class ProductControllerService
                         'id' => (string) $related->id,
                         'name' => (string) $related->name,
                         'slug' => (string) $related->slug,
-                        'thumbnail' => $this->resolvePublicProductThumbnail($related->thumbnail),
+                        'thumbnail' => $demoOnly
+                            ? StorefrontDemoProductImages::thumbnailForSlug($related->slug)
+                            : $this->resolvePublicProductThumbnail($related->thumbnail),
                         'price' => (float) $relatedPricing['price'],
                         'original_price' => $relatedPricing['original_price'],
                         'discount_percent' => (int) $relatedPricing['discount_percent'],
@@ -2067,9 +2076,9 @@ class ProductControllerService
                 'name' => $product->name,
                 'slug' => $product->slug,
                 'code' => $product->code ?? null,
-                'thumbnail' => $this->resolvePublicProductThumbnail($rawThumbnail),
-                'featured_image' => $this->resolvePublicProductThumbnail($rawThumbnail),
-                'images' => collect($this->rawProductImages($product))
+                'thumbnail' => $thumbnail,
+                'featured_image' => $thumbnail,
+                'images' => $demoOnly ? $demoImages : collect($this->rawProductImages($product))
                     ->map(fn ($image) => $this->resolvePublicProductImage($image))
                     ->filter()
                     ->values()

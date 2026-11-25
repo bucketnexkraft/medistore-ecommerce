@@ -35,6 +35,7 @@ use App\Services\Backoffice\ETemplateBuilderService;
 use App\Services\CompanyPlanFeatureService;
 use App\Support\EcommerceCompanyContext;
 use App\Support\StorefrontCategoryThemeCatalog;
+use App\Support\StorefrontDemoProductImages;
 use App\Support\StorefrontSectionSchemaRegistry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -45,6 +46,19 @@ use Illuminate\Support\Str;
 class ContentService
 {
     private const USER_DEFINED_TYPE_DEMAND_TAG = 'demand_tag';
+
+    private const DEMO_CATEGORY_IMAGES = [
+        'books-stationery' => 'diabetic-care.webp',
+        'electronics-gadgets' => 'diagnostic-product.webp',
+        'fashion-apparel' => 'digital-thermometers.webp',
+        'groceries-essentials' => 'hospital-products.webp',
+        'health-beauty' => 'nebulizer-machine.webp',
+        'home-kitchen' => 'rapid-test-kit.webp',
+        'jewelry-accessories' => 'surgical-products.webp',
+        'pet-supplies' => 'digital-blood-pressure-monitor.webp',
+        'sports-fitness' => 'pain-rehabilitation.webp',
+        'toys-kids' => 'veterinary-accessories.webp',
+    ];
 
     private $activeStorefrontDiscountSetups;
 
@@ -299,6 +313,19 @@ class ContentService
         }
 
         return $path ? ImageService::url($path, 'category-images') : public_path('images/placeholder.jpg');
+    }
+
+    private function landingCategoryImage(Category $category, bool $demoOnly): string
+    {
+        if (! $demoOnly) {
+            return $this->resolveCategoryImage($category->image);
+        }
+
+        $image = self::DEMO_CATEGORY_IMAGES[Str::slug($category->title)] ?? null;
+
+        return $image === null
+            ? ''
+            : public_asset_url('images/category-images/demo-medical/' . $image);
     }
 
     private function storefrontCacheKey(string $suffix, ?string $companyId = null): string
@@ -960,14 +987,15 @@ class ContentService
 
     public function landingCategories()
     {
-        $companyId = $this->storefrontDemoOnly()
+        $demoOnly = $this->storefrontDemoOnly();
+        $companyId = $demoOnly
             ? null
             : (EcommerceCompanyContext::resolveCompanyIdForRequest(request())
                 ?? $this->warmStorefrontCompanyContext());
         $payload = Cache::remember(
-            $this->storefrontCacheKey('landing-categories:v2' . ($this->storefrontDemoOnly() ? ':demo' : ':live'), $companyId),
+            $this->storefrontCacheKey('landing-categories:' . ($demoOnly ? 'v5:demo' : 'v2:live'), $companyId),
             now()->addMinutes(10),
-            function () use ($companyId) {
+            function () use ($companyId, $demoOnly) {
             $categories = $this->storefrontCatalogQuery(Category::class)
                 ->when($companyId, fn ($query) => $query->where('company_id', $companyId))
                 ->where('status', 1)
@@ -1002,18 +1030,18 @@ class ContentService
                     },
                 ])
                 ->orderBy('title')
-                ->when($this->storefrontDemoOnly(), function ($query) {
+                ->when($demoOnly, function ($query) {
                     $query->where('is_demo', true);
                 })
                 ->get()
-                ->map(function (Category $category) {
+                ->map(function (Category $category) use ($demoOnly) {
                     $children = $category->children
-                        ->map(function (Category $child) {
+                        ->map(function (Category $child) use ($demoOnly) {
                             return [
                                 'id' => (string) $child->id,
                                 'name' => (string) $child->title,
                                 'slug' => (string) $child->slug,
-                                'image' => $this->resolveCategoryImage($child->image),
+                                'image' => $this->landingCategoryImage($child, $demoOnly),
                                 'products_count' => (int) $child->products_count,
                             ];
                         })
@@ -1024,7 +1052,7 @@ class ContentService
                         'id' => (string) $category->id,
                         'name' => (string) $category->title,
                         'slug' => (string) $category->slug,
-                        'image' => $this->resolveCategoryImage($category->image),
+                        'image' => $this->landingCategoryImage($category, $demoOnly),
                         'products_count' => (int) $category->products_count,
                         'children_count' => count($children),
                         'children' => $children,
@@ -1225,7 +1253,8 @@ class ContentService
     public function landingProducts()
     {
         $request = request();
-        $companyId = $this->storefrontDemoOnly()
+        $demoOnly = $this->storefrontDemoOnly();
+        $companyId = $demoOnly
             ? null
             : (EcommerceCompanyContext::resolveCompanyIdForRequest($request)
                 ?? $this->warmStorefrontCompanyContext());
@@ -1382,6 +1411,13 @@ class ContentService
             });
         }
 
+        if ($demoOnly && $sort === 'newest' && $search === '' && $categorySlug === '' && $brandSlug === ''
+            && $demandTags === [] && $stock === 'all' && ! is_numeric($minPrice) && ! is_numeric($maxPrice)) {
+            $demoSlugs = StorefrontDemoProductImages::slugs();
+            $positions = implode(' ', array_map(fn (int $index): string => "WHEN ? THEN {$index}", array_keys($demoSlugs)));
+            $productsQuery->orderByRaw('CASE slug ' . $positions . ' ELSE ' . count($demoSlugs) . ' END', $demoSlugs);
+        }
+
         match ($sort) {
             'price-low-high' => $productsQuery->orderBy('latest_price')->orderByDesc('created_at'),
             'price-high-low' => $productsQuery->orderByDesc('latest_price')->orderByDesc('created_at'),
@@ -1393,7 +1429,7 @@ class ContentService
         $paginatedProducts = $productsQuery->paginate($perPage);
 
           $products = $paginatedProducts->getCollection()
-              ->map(function (Product $product) {
+              ->map(function (Product $product) use ($demoOnly) {
                   $latestInStockPrice = optional($product->inventory_items->firstWhere('quantity', '>', 0))->price;
                   $latestKnownPrice = optional($product->inventory_items->first())->price;
                   $basePrice = (float) ($latestInStockPrice ?? $latestKnownPrice ?? 0);
@@ -1407,7 +1443,9 @@ class ContentService
                     'id' => (string) $product->id,
                     'name' => (string) $product->name,
                     'slug' => (string) $product->slug,
-                    'thumbnail' => $this->resolveProductImage($product->thumbnail),
+                    'thumbnail' => $demoOnly
+                        ? StorefrontDemoProductImages::thumbnailForSlug($product->slug)
+                        : $this->resolveProductImage($product->thumbnail),
                     'price' => (float) $pricing['price'],
                     'original_price' => $pricing['original_price'],
                     'discount_percent' => (int) $pricing['discount_percent'],

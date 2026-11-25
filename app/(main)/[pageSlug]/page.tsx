@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { loadEcommerceCategoryHome } from "@/components/ecommerce/categories/theme-registry";
 import { ecommerceCategoryKeys, isEcommerceChromeSection, resolveEcommerceCategoryKey, type EcommerceSection } from "@/components/ecommerce/categories/category-contract";
 import { loadStorefrontPageData } from "@/lib/storefront-page";
+import { FlashDealsPageContent } from "@/components/ecommerce/categories/fashion-apparel/sections/flash_deal/FlashDealCountdown";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export default async function StorefrontDynamicPage({
 	const { host, page, sections, contentHtml, storefrontCategory } = await loadStorefrontPageData(`/pages/${encodeURIComponent(pageSlug)}?react=1`);
 
 	if (!page) {
+		if (pageSlug === "flash-deals") return <FlashDealsPageContent host={host} />;
 		notFound();
 	}
 

@@ -41,7 +41,7 @@ class StorefrontCatalogController extends Controller
 
     public function landingProducts()
     {
-        return $this->demoCached('products', fn () => $this->liveCached('products', fn () => $this->contentService->landingProducts()));
+        return $this->demoCached('products:v4', fn () => $this->liveCached('products', fn () => $this->contentService->landingProducts()));
     }
 
     public function landingBrands()

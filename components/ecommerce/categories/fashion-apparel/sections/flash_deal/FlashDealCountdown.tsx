@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import SafeImage from "@/components/common/SafeImage";
+import { useAmount } from "@/lib/amount";
 import { getCountdownParts, useFlashDealSection, ZERO_PARTS, type FlashDealProduct } from "./flash-deal-data";
 import type { FashionSectionProps } from "../../types";
 
@@ -95,13 +96,26 @@ function FlashDealSkeleton({ itemCount }: { itemCount: number }) {
 	);
 }
 
-export default function FlashDealCountdown({ section, host, demoOnly }: FashionSectionProps) {
+export default function FlashDealCountdown({ section, host, demoOnly, showEmptyState = false, formatPagePrice }: FashionSectionProps & {
+	showEmptyState?: boolean;
+	formatPagePrice?: (value: number) => string;
+}) {
 	const { products, endsAt, loading, enabled, itemsAllow, heading, subheading, buttonText, buttonLink, formatPrice } = useFlashDealSection({ section, host, demoOnly });
 
 	if (!enabled) return null;
 	if (loading) return <FlashDealSkeleton itemCount={Math.min(itemsAllow, 4)} />;
-	if (products.length === 0) return null;
+	if (products.length === 0) return showEmptyState ? (
+		<section className="section py-10" aria-label="Flash deal availability">
+			<div className="rounded-xl border border-border p-6 text-center">
+				<p>No flash deals to display right now.</p>
+				<Link href={buttonLink} className="mt-4 inline-flex min-h-11 items-center rounded-md bg-primary px-4 font-semibold text-primary-foreground transition-colors hover:bg-primary/85">
+					{buttonText}
+				</Link>
+			</div>
+		</section>
+	) : null;
 
+	const displayPrice = formatPagePrice ?? formatPrice;
 	const heroProduct = products[0];
 	const gridProducts = products.slice(1);
 
@@ -133,8 +147,8 @@ export default function FlashDealCountdown({ section, host, demoOnly }: FashionS
 									<p className="mt-3 text-sm font-semibold text-white/80">{heroProduct.brand || heroProduct.category}</p>
 								</div>
 								<div>
-									<p className="text-3xl font-bold">{formatPrice(heroProduct.price)}</p>
-									{heroProduct.originalPrice > heroProduct.price ? <p className="mt-1 text-sm text-white/70 line-through">{formatPrice(heroProduct.originalPrice)}</p> : null}
+								<p className="text-3xl font-bold">{displayPrice(heroProduct.price)}</p>
+								{heroProduct.originalPrice > heroProduct.price ? <p className="mt-1 text-sm text-white/70 line-through">{displayPrice(heroProduct.originalPrice)}</p> : null}
 								</div>
 							</div>
 							<div className="relative min-h-48 overflow-hidden rounded-2xl bg-white/10">
@@ -145,11 +159,32 @@ export default function FlashDealCountdown({ section, host, demoOnly }: FashionS
 
 					{gridProducts.length > 0 ? (
 						<div className="grid gap-5 sm:grid-cols-2">
-							{gridProducts.map((product) => <ProductCard key={product.id} product={product} formatPrice={formatPrice} />)}
+							{gridProducts.map((product) => <ProductCard key={product.id} product={product} formatPrice={displayPrice} />)}
 						</div>
 					) : null}
 				</div>
 			</div>
 		</section>
+	);
+}
+
+export function FlashDealsPageContent({ host, demoOnly }: Pick<FashionSectionProps, "host" | "demoOnly">) {
+	const { formatAmount } = useAmount();
+
+	return (
+		<main className="pb-8">
+			<div className="section pt-8 md:pt-12">
+				<h1 className="text-3xl font-bold tracking-tight md:text-4xl">Flash Deals</h1>
+			</div>
+			<FlashDealCountdown
+				section={{ title: "Current offers", config: { data: { items_allow: 24 } } }}
+				host={host}
+				demoOnly={demoOnly}
+				sections={[]}
+				index={0}
+				showEmptyState
+				formatPagePrice={formatAmount}
+			/>
+		</main>
 	);
 }

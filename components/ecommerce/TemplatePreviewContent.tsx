@@ -1,6 +1,8 @@
 import { loadEcommerceCategoryHome } from "@/components/ecommerce/categories/theme-registry";
 import StorefrontChrome from "@/components/ecommerce/categories/StorefrontChrome";
 import PreviewNavigationGuard from "@/components/ecommerce/PreviewNavigationGuard";
+import { BlogArchive, BlogArticle } from "@/components/ecommerce/blog/BlogPages";
+import { FlashDealsPageContent } from "@/components/ecommerce/categories/fashion-apparel/sections/flash_deal/FlashDealCountdown";
 import {
 	ecommerceCategoryKeys,
 	getEcommerceChromeSlot,
@@ -210,17 +212,24 @@ export default async function TemplatePreviewContent({
 	}
 
 	const pages = Array.isArray(preview?.builder?.pages) ? preview.builder.pages : [];
+	const previewPagePaths = pages.flatMap((page) => [page?.slug, page?.route_key])
+		.map((value) => toText(value).replace(/^\/+|\/+$/g, "").toLowerCase())
+		.filter(Boolean);
 	const sections = Array.isArray(preview?.builder?.sections) ? preview.builder.sections : [];
 	const actions = Array.isArray(preview?.builder?.actions) ? preview.builder.actions : [];
 	const homePage = pages.find((page) => toText(page?.slug).toLowerCase() === "home") || pages[0] || null;
 	const requestedPage = toText(pageSlug).replace(/^\/+|\/+$/g, "").toLowerCase();
-	const selectedPage = requestedPage
+	const matchingPage = requestedPage
 		? pages.find((page) => {
 			const slug = toText(page?.slug).replace(/^\/+|\/+$/g, "").toLowerCase();
 			const routeKey = toText(page?.route_key).replace(/^\/+|\/+$/g, "").toLowerCase();
 			return slug === requestedPage || routeKey === requestedPage;
-		}) || homePage
-		: homePage;
+		})
+		: undefined;
+	const selectedPage = matchingPage ?? homePage;
+	const previewArticleSlug = requestedPage.match(/^blog\/([^/]+)$/)?.[1];
+	const previewBlog = !matchingPage && (requestedPage === "blog" || previewArticleSlug);
+	const previewFlashDeals = !matchingPage && requestedPage === "flash-deals";
 	const pageId = toText(selectedPage?.id);
 	const homePageId = toText(homePage?.id);
 	const selectedPageSections = sections.filter((section) => {
@@ -292,7 +301,7 @@ export default async function TemplatePreviewContent({
 		storefrontTemplate: null,
 	};
 	return (
-		<PreviewNavigationGuard>
+		<PreviewNavigationGuard pagePaths={previewPagePaths}>
 			{fontDefinition ? (
 				<link
 					rel="stylesheet"
@@ -328,7 +337,13 @@ export default async function TemplatePreviewContent({
 						previewMode
 					/>
 				))}
-				{CategoryHome ? <CategoryHome sections={contentSections} host={requestHost} demoOnly previewMode /> : null}
+				{previewBlog ? (
+					previewArticleSlug
+						? await BlogArticle({ slug: previewArticleSlug, host: requestHost, demo: true }) ?? <main className="container mx-auto px-4 py-12">Article not found.</main>
+						: <BlogArchive host={requestHost} demo />
+				) : previewFlashDeals ? (
+					<FlashDealsPageContent host={requestHost} demoOnly />
+				) : CategoryHome ? <CategoryHome sections={contentSections} host={requestHost} demoOnly previewMode /> : null}
 				{footerSections.map((section, index) => (
 					<StorefrontChrome
 						key={`preview-footer-${section.id || section.component_key || index}`}

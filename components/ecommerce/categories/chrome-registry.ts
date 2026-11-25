@@ -45,8 +45,12 @@ registry["fashion-apparel"].header["fashion-apparel-header-classic"] = async () 
 	await import("./fashion-apparel/sections/header/HeaderClassic") as unknown as EcommerceChromeModule;
 registry["fashion-apparel"].header["fashion-apparel-header-compact"] = async () =>
 	await import("./fashion-apparel/sections/header/HeaderCompact") as unknown as EcommerceChromeModule;
+registry["fashion-apparel"].header["fashion-apparel-header-nex-medicine"] = async () =>
+	await import("./fashion-apparel/sections/header/HeaderNexMedicine") as unknown as EcommerceChromeModule;
 registry["fashion-apparel"].footer["fashion-apparel-footer-default"] = async () =>
 	await import("./fashion-apparel/sections/footer/FooterDefault") as unknown as EcommerceChromeModule;
+registry["fashion-apparel"].footer["fashion-apparel-footer-medical"] = async () =>
+	await import("./fashion-apparel/sections/footer/FooterMedical");
 registry["electronics-gadgets"].header["electronics-gadgets-header-default"] = async () =>
 	await import("./electronics-gadgets/sections/header/HeaderDefault") as unknown as EcommerceChromeModule;
 registry["electronics-gadgets"].header["electronics-gadgets-header-gadgets-one"] = async () =>

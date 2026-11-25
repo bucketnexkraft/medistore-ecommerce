@@ -360,6 +360,34 @@ class StorefrontSectionSchemaRegistry
 
         $decoded = json_decode((string) file_get_contents($path), true);
 
-        return $document = is_array($decoded) ? $decoded : [];
+        if (! is_array($decoded)) {
+            return $document = [];
+        }
+
+        // Field references stay within the same category and section type.
+        foreach ($decoded as $category => $sections) {
+            foreach ((array) $sections as $variant => $presets) {
+                foreach ((array) $presets as $preset => $definition) {
+                    $inherit = $definition['inherit_fields'] ?? null;
+                    if (! is_array($inherit)) {
+                        continue;
+                    }
+
+                    $source = $presets[$inherit['preset'] ?? ''] ?? [];
+                    $sourceFields = $source['fields'] ?? $source;
+                    unset($definition['inherit_fields']);
+                    $localFields = $definition['fields'] ?? $definition;
+                    foreach ($inherit['keys'] ?? [] as $key) {
+                        $localFields[$key] ??= $sourceFields[$key] ?? null;
+                    }
+
+                    $decoded[$category][$variant][$preset] = isset($definition['fields'])
+                        ? [...$definition, 'fields' => $localFields]
+                        : $localFields;
+                }
+            }
+        }
+
+        return $document = $decoded;
     }
 }

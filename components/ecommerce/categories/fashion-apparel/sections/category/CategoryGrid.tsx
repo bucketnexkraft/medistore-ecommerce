@@ -3,8 +3,8 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchStorefrontJson } from "@/lib/storefront-api-cache";
 
@@ -30,11 +30,16 @@ type CategoryGridProps = {
 };
 
 const fallbackContent = {
-	heading: "Hot categories",
+	heading: "Shop by Category",
 	subheading: "Browse popular categories from this store.",
-	buttonText: "All Categories",
+	buttonText: "View All",
 	buttonLink: "/categories",
 };
+
+const sectionClass = "container mx-auto bg-white px-4 py-8 sm:px-6 md:py-12 lg:px-8";
+const headerClass = "mb-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 md:mb-7";
+const cardWidthClass = "w-36! sm:w-40! xl:w-44!";
+const arrowButtonClass = "flex size-11 cursor-pointer items-center justify-center rounded-full border border-primary/30 text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default disabled:border-neutral-200 disabled:text-neutral-400 disabled:hover:bg-transparent";
 
 const asRecord = (value: unknown): Record<string, unknown> =>
 	value && typeof value === "object" && !Array.isArray(value)
@@ -62,18 +67,18 @@ const normalizeCategory = (value: unknown): CategoryItem | null => {
 	};
 };
 
-function CategoryImage({ src, alt }: { src: string; alt: string }) {
+function CategoryImage({ src }: { src: string }) {
 	const [imageSrc, setImageSrc] = useState(src || "/images/placeholder.jpg");
 
 	return (
 		<Image
 			src={imageSrc}
-			alt={alt}
+			alt=""
 			fill
 			unoptimized
 			loading="lazy"
-			sizes="(min-width: 1024px) 180px, (min-width: 640px) 22vw, 42vw"
-			className="object-cover transition-transform duration-300 group-hover:scale-105"
+			sizes="(min-width: 1280px) 158px, (min-width: 640px) 142px, 126px"
+			className="object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-110"
 			onError={() => setImageSrc("/images/placeholder.jpg")}
 		/>
 	);
@@ -81,24 +86,28 @@ function CategoryImage({ src, alt }: { src: string; alt: string }) {
 
 function CategoryGridSkeleton() {
 	return (
-		<section className="container mx-auto my-14 rounded-20 border border-gray-200 bg-white p-6 md:p-8">
-			<div className="flex flex-col items-start gap-8 lg:flex-row lg:gap-12">
-				<div className="w-full space-y-6 lg:w-1/4">
-					<div className="h-8 w-40 animate-pulse rounded bg-gray-200" />
-					<div className="space-y-2">
-						<div className="h-4 w-full animate-pulse rounded bg-gray-200" />
-						<div className="h-4 w-5/6 animate-pulse rounded bg-gray-200" />
-					</div>
-					<div className="h-12 w-40 animate-pulse rounded bg-gray-200" />
+		<section className={sectionClass} aria-hidden="true">
+			<div className={`motion-safe:animate-pulse ${headerClass}`}>
+				<div className="space-y-2">
+					<div className="h-7 w-40 rounded bg-neutral-200 md:h-9" />
+					<div className="h-4 w-48 rounded bg-neutral-100" />
 				</div>
-				<div className="grid w-full flex-1 grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-					{Array.from({ length: 5 }).map((_, index) => (
-						<div key={index} className="space-y-3">
-							<div className="aspect-square animate-pulse rounded-lg bg-gray-200" />
-							<div className="mx-auto h-4 w-4/5 animate-pulse rounded bg-gray-200" />
+				<div className="flex items-center gap-2">
+					<div className="hidden size-11 rounded-full bg-neutral-100 md:block" />
+					<div className="hidden size-11 rounded-full bg-neutral-100 md:block" />
+					<div className="h-11 w-28 rounded-lg bg-neutral-200" />
+				</div>
+			</div>
+			<div className="flex gap-4 overflow-hidden pb-4 motion-safe:animate-pulse">
+				{Array.from({ length: 9 }, (_, index) => (
+					<div key={index} className={`${cardWidthClass} shrink-0 rounded-xl border border-neutral-200 p-2`}>
+						<div className="aspect-[4/3] rounded-lg bg-neutral-100" />
+						<div className="space-y-2 px-1 pt-3 pb-1">
+							<div className="h-4 w-4/5 rounded bg-neutral-200" />
+							<div className="h-3 w-1/2 rounded bg-neutral-100" />
 						</div>
-					))}
-				</div>
+					</div>
+				))}
 			</div>
 		</section>
 	);
@@ -159,60 +168,60 @@ export default function CategoryGrid({ section, host, demoOnly }: CategoryGridPr
 	if (loading) return <CategoryGridSkeleton />;
 
 	return (
-		<section data-storefront-section="fashion-apparel-category-grid" className="container mx-auto my-14 rounded-20 border border-gray-200 bg-white p-6 md:p-8">
-			<div className="flex flex-col items-start gap-8 lg:flex-row lg:gap-12">
-				<div className="space-y-6 lg:w-1/4">
-					<div className="flex items-center gap-2">
-						<Image src="/images/header/fire.svg" alt="" width={26} height={26} aria-hidden="true" />
-						<h2 className="text-xl font-semibold text-primary-black">{resolved.heading}</h2>
-					</div>
-					<p className="text-primary-body">{resolved.subheading}</p>
-					<Link href={resolved.buttonLink || "#"} className="inline-flex rounded-sm bg-primary-black px-8 py-3 text-sm font-medium text-background transition hover:bg-foreground/90">
-						{resolved.buttonText}
-					</Link>
+		<section data-storefront-section="fashion-apparel-category-grid" className={sectionClass} aria-labelledby={`category-grid-heading-${navigationId}`}>
+			<div className={headerClass}>
+				<div className="min-w-0">
+					<h2 id={`category-grid-heading-${navigationId}`} className="text-2xl font-bold text-neutral-900 md:text-3xl">{resolved.heading}</h2>
+				<p className="mt-1 text-sm font-normal! text-muted-foreground! md:text-base">{resolved.subheading}</p>
 				</div>
-
-				<div className="w-full flex-1 lg:w-3/4">
-					{categories.length ? (
-						<div className="relative flex items-center gap-2">
-							<button type="button" aria-label="Previous categories" className={`${previousClass} flex size-8 shrink-0 cursor-pointer items-center justify-center text-muted-foreground transition-colors hover:text-foreground`}>
-								<ChevronLeft className="size-6" />
+				<div className="flex items-center gap-3">
+				{categories.length > 0 && (
+						<div className="hidden gap-2 md:flex">
+							<button type="button" aria-label="Previous categories" className={`${previousClass} ${arrowButtonClass}`}>
+								<ChevronLeft className="size-5" aria-hidden="true" />
 							</button>
-
-							<div className="min-w-0 flex-1 overflow-hidden lg:px-16">
-								<Swiper
-									modules={[Navigation, Autoplay]}
-									spaceBetween={16}
-									slidesPerView={2}
-									loop={categories.length > 5}
-									autoplay={{ delay: 3000, disableOnInteraction: false }}
-									navigation={{ prevEl: `.${previousClass}`, nextEl: `.${nextClass}` }}
-									breakpoints={{ 480: { slidesPerView: 3 }, 640: { slidesPerView: 4 }, 1024: { slidesPerView: 5 } }}
-								>
-									{categories.map((category) => (
-										<SwiperSlide key={category.id}>
-											<Link href={category.slug ? `/categories/${category.slug}` : resolved.buttonLink || "/categories"} className="group flex cursor-pointer flex-col items-center gap-2">
-												<div className="relative aspect-square w-full overflow-hidden rounded-lg bg-muted">
-													<CategoryImage key={`${category.id}-${category.image}`} src={category.image} alt={category.name} />
-												</div>
-												<span className="line-clamp-1 w-full text-center font-medium text-primary-black">{category.name}</span>
-											</Link>
-										</SwiperSlide>
-									))}
-								</Swiper>
-							</div>
-
-							<button type="button" aria-label="Next categories" className={`${nextClass} flex size-8 shrink-0 cursor-pointer items-center justify-center text-muted-foreground transition-colors hover:text-foreground`}>
-								<ChevronRight className="size-6" />
+							<button type="button" aria-label="Next categories" className={`${nextClass} ${arrowButtonClass}`}>
+								<ChevronRight className="size-5" aria-hidden="true" />
 							</button>
-						</div>
-					) : (
-						<div className="flex min-h-48 items-center justify-center rounded-xl border border-dashed border-gray-200 bg-gray-50 px-6 text-center text-sm text-primary-body">
-							No categories found.
 						</div>
 					)}
-				</div>
+					<Link href={resolved.buttonLink} className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+						{resolved.buttonText}
+						<ArrowRight className="size-4 shrink-0" aria-hidden="true" />
+					</Link>
+					</div>
 			</div>
+			{categories.length ? (
+				<Swiper
+					modules={[Navigation, A11y]}
+					className="-mx-2! px-2! pt-1! pb-4!"
+					spaceBetween={16}
+					slidesPerView="auto"
+					watchSlidesProgress
+					navigation={{ prevEl: `.${previousClass}`, nextEl: `.${nextClass}` }}
+					a11y={{ prevSlideMessage: "Previous categories", nextSlideMessage: "Next categories" }}
+				>
+					{categories.map((category) => (
+						<SwiperSlide key={category.id} className={cardWidthClass}>
+							<Link href={category.slug ? `/categories/${category.slug}` : resolved.buttonLink} className="group block rounded-xl border border-neutral-200 bg-white p-2 transition-[border-color,box-shadow] hover:border-primary/35 hover:shadow-md focus-visible:outline-2 focus-visible:outline-primary">
+								<div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-100">
+									<CategoryImage key={category.image} src={category.image} />
+								</div>
+								<div className="px-1 pt-2.5 pb-1">
+								<h3 className="truncate text-sm font-semibold text-neutral-800 transition-colors group-hover:text-primary group-focus-visible:text-primary">{category.name}</h3>
+									<span className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
+										Shop Now <ArrowRight className="size-3" aria-hidden="true" />
+									</span>
+								</div>
+							</Link>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			) : (
+				<div className="flex min-h-48 items-center justify-center rounded-xl border border-dashed border-neutral-200 bg-neutral-50 px-6 text-center text-sm text-muted-foreground">
+					No categories found.
+				</div>
+			)}
 		</section>
 	);
 }

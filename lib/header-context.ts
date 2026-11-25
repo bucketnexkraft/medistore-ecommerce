@@ -105,6 +105,7 @@ export const mapHeaderActionsToNavItems = (actions: StorefrontChromeAction[]): H
 export const buildDynamicSocialLinks = (
 	data: Record<string, unknown> | null | undefined,
 	headerSection?: StorefrontChromeSection | null,
+	normalizeConfiguredHref?: (href: string) => string,
 ): SocialLinkState[] => {
 	const configuredItems = headerSection?.config?.content?.social_links;
 	if (Array.isArray(configuredItems)) {
@@ -113,7 +114,9 @@ export const buildDynamicSocialLinks = (
 				if (!item || typeof item !== "object") return null;
 				const record = item as Record<string, unknown>;
 				const rawHref = String(record.url ?? record.href ?? "").trim();
-				const href = rawHref && /^(https?:\/\/|\/\/|\/|#|mailto:|tel:)/i.test(rawHref) ? rawHref : (rawHref ? `https://${rawHref}` : "");
+				const href = normalizeConfiguredHref
+					? normalizeConfiguredHref(rawHref)
+					: rawHref && /^(https?:\/\/|\/\/|\/|#|mailto:|tel:)/i.test(rawHref) ? rawHref : (rawHref ? `https://${rawHref}` : "");
 				const icon = String(
 					typeof record.icon === "object" && record.icon !== null
 						? (record.icon as Record<string, unknown>).name ?? ""

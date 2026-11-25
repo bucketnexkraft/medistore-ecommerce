@@ -20,8 +20,8 @@
 | - 'Showing Label' is what gets displayed in the UI (dropdowns, pickers, etc).
 | - section_type keys must match StorefrontTemplateVariant::values()
 |   (header, hero, hot_category, category_grid, flash_deal, products,
-|   best_selling (legacy), top_seller, group_deals, on_sale, brand_strip, footer, product_filter,
-|   group_purchase, assistant).
+|   best_selling (legacy), top_seller, group_deals, on_sale, brand_strip, service_highlights, why_choose_us,
+|   articles, newsletter, footer, product_filter, group_purchase, assistant).
 |
 */
 
@@ -44,6 +44,7 @@ return [
                 'header-minimal' => 'Header Minimal',
                 'header-classic' => 'Header Classic',
                 'header-compact' => 'Header Compact',
+                'header-nex-medicine' => 'Header Nex Medical',
             ],
             'hero' => [
                 'hero-compact' => 'Hero Compact',
@@ -51,6 +52,7 @@ return [
                 'hero-classic' => 'Hero Classic',
                 'hero-split-spotlight' => 'Hero Split Spotlight',
                 'hero-fashion-luxe' => 'Fashion Hero Luxe',
+                'hero-medical' => 'Hero Medical',
             ],
             'hot_category' => [
                 'category-grid' => 'Hot Category Grid',
@@ -70,6 +72,19 @@ return [
             'brand_strip' => [
                 'brand-strip-default' => 'Brand Strip Default',
                 'brand-strip-marquee' => 'Brand Strip Marquee',
+                'brand-showcase' => 'Brand Showcase',
+            ],
+            'service_highlights' => [
+                'service-highlights' => 'Reliable Service Highlights',
+            ],
+            'why_choose_us' => [
+                'why-choose-us' => 'Why Choose Us',
+            ],
+            'articles' => [
+                'recent-health-articles' => 'Recent Health Articles',
+            ],
+            'newsletter' => [
+                'newsletter-subscribe' => 'Newsletter Subscribe',
             ],
             'product_filter' => [
                 'product-filter-default' => 'Product Filter Default',
@@ -81,6 +96,7 @@ return [
             ],
             'footer' => [
                 'footer-default' => 'Footer Default',
+                'footer-medical' => 'Footer Medical',
             ],
         ],
 

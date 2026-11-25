@@ -3,7 +3,11 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import type { MouseEvent, ReactNode } from "react";
 
-function buildPreviewHref(href: string, searchParams: { get(name: string): string | null }) {
+function buildPreviewHref(
+	href: string,
+	searchParams: { get(name: string): string | null },
+	previewPages?: string[],
+) {
 	if (!href.startsWith("/") || href.startsWith("//")) return null;
 
 	const templateId = searchParams.get("template_id");
@@ -12,16 +16,22 @@ function buildPreviewHref(href: string, searchParams: { get(name: string): strin
 
 	const target = new URL(href, "http://preview.local");
 	const targetPage = target.pathname.replace(/^\/+|\/+$/g, "") || "home";
-	const previewParams = new URLSearchParams({
-		template_id: templateId,
-		is_demo: "true",
-		preview_page: targetPage,
-	});
+	if (previewPages && !isPreviewPage(targetPage, previewPages)) return null;
+	const previewParams = new URLSearchParams(target.search);
+	previewParams.set("template_id", templateId);
+	previewParams.set("is_demo", "true");
+	previewParams.set("preview_page", targetPage);
 
-	return `/?${previewParams.toString()}`;
+	return `/?${previewParams.toString()}${target.hash}`;
 }
 
-export default function PreviewNavigationGuard({ children }: { children: ReactNode }) {
+function isPreviewPage(page: string, configuredPages: string[]) {
+	const path = page.toLowerCase();
+	if (path === "signin") return false;
+	return ["home", "blog", "flash-deals"].includes(path) || /^blog\/[^/]+$/.test(path) || configuredPages.includes(path);
+}
+
+export default function PreviewNavigationGuard({ children, pagePaths = [] }: { children: ReactNode; pagePaths?: string[] }) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 
@@ -37,7 +47,7 @@ export default function PreviewNavigationGuard({ children }: { children: ReactNo
 		const href = link.getAttribute("href");
 		if (!href) return;
 
-		const previewHref = buildPreviewHref(href, searchParams);
+		const previewHref = buildPreviewHref(href, searchParams, link.hasAttribute("data-storefront-header-link") ? pagePaths : undefined);
 		if (!previewHref || previewHref === href) return;
 
 		event.preventDefault();
